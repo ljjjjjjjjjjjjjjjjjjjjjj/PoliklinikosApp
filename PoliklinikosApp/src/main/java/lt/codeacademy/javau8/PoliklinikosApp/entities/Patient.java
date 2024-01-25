@@ -1,3 +1,4 @@
+
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
 import jakarta.persistence.Entity;

@@ -1,3 +1,4 @@
+
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
 import jakarta.persistence.Entity;
@@ -9,41 +10,41 @@ import jakarta.persistence.Id;
 public class MedicalService {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long servicesID;
-    String servicesTitle;
-    String servicesCategory;
+    Long serviceID;
+    String serviceTitle;
+    String serviceCategory;
 
 
     // Constructors:
 
     public MedicalService() {}
 
-    public MedicalService(String servicesTitle, String servicesCategory) {
-        this.servicesTitle = servicesTitle;
-        this.servicesCategory = servicesCategory;
+    public MedicalService(String serviceTitle, String serviceCategory) {
+        this.serviceTitle = serviceTitle;
+        this.serviceCategory = serviceCategory;
     }
 
-    public MedicalService(Long servicesID, String servicesTitle, String servicesCategory) {
-        this.servicesID = servicesID;
-        this.servicesTitle = servicesTitle;
-        this.servicesCategory = servicesCategory;
+    public MedicalService(Long serviceID, String serviceTitle, String serviceCategory) {
+        this.serviceID = serviceID;
+        this.serviceTitle = serviceTitle;
+        this.serviceCategory = serviceCategory;
     }
 
     // Getters & Setters
-    public Long getServicesID() {
-        return servicesID;}
-    public void setServicesID(Long servicesID) {
-        this.servicesID = servicesID;}
+    public Long getServiceID() {
+        return serviceID;}
+    public void setServiceID(Long serviceID) {
+        this.serviceID = serviceID;}
 
-    public String getServicesCategory() {
-        return servicesCategory;}
-    public void setServicesCategory(String servicesCategory) {
-        this.servicesCategory = servicesCategory;}
+    public String getServiceCategory() {
+        return serviceCategory;}
+    public void setServiceCategory(String serviceCategory) {
+        this.serviceCategory = serviceCategory;}
 
-    public String getServicesTitle() {
-        return servicesTitle;}
-    public void setServicesTitle(String servicesTitle) {
-        this.servicesTitle = servicesTitle;}
+    public String getServiceTitle() {
+        return serviceTitle;}
+    public void setServiceTitle(String serviceTitle) {
+        this.serviceTitle = serviceTitle;}
 
     // Methods:
 
@@ -51,9 +52,9 @@ public class MedicalService {
     @Override
     public String toString() {
         return "MedicalService{" +
-                "servicesID=" + servicesID +
-                ", servicesTitle='" + servicesTitle + '\'' +
-                ", servicesCategory='" + servicesCategory + '\'' +
+                "servicesID=" + serviceID +
+                ", servicesTitle='" + serviceTitle + '\'' +
+                ", servicesCategory='" + serviceCategory + '\'' +
                 '}';
     }
 }

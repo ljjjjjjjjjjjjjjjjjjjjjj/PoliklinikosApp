@@ -1,12 +1,17 @@
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Employee {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long empID;
+
     String empName;
     String empSurname;
     String empContactInfo;
@@ -18,8 +23,17 @@ public class Employee {
     // Constructors:
     public Employee() {}
 
-    public Employee(String empName) {
+    public Employee(String empName, String empSurname, String empCategory) {
         this.empName = empName;
+        this.empSurname = empSurname;
+        this.empCategory = empCategory;
+    }
+
+    public Employee(Long empID, String empName, String empSurname, String empCategory) {
+        this.empID = empID;
+        this.empName = empName;
+        this.empSurname = empSurname;
+        this.empCategory = empCategory;
     }
 
     public Employee(String empName, String empSurname, String empContactInfo, String empCategory) {

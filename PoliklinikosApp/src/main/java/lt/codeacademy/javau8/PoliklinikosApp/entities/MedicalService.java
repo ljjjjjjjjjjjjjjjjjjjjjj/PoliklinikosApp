@@ -1,10 +1,14 @@
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class MedicalService {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long servicesID;
     String servicesTitle;
     String servicesCategory;

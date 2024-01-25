@@ -1,10 +1,14 @@
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Patient {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long patientID;
 
     String patientName;
@@ -16,6 +20,17 @@ public class Patient {
     // Constructors:
 
     public Patient() {
+    }
+
+    public Patient(String patientName, String patientSurname) {
+        this.patientName = patientName;
+        this.patientSurname = patientSurname;
+    }
+
+    public Patient(Long patientID, String patientName, String patientSurname) {
+        this.patientID = patientID;
+        this.patientName = patientName;
+        this.patientSurname = patientSurname;
     }
 
     public Patient(String patientName, String patientSurname, String patientContactInfo, String patientCategory) {

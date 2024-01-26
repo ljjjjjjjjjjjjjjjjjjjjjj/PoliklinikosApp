@@ -5,7 +5,7 @@ import lt.codeacademy.javau8.PoliklinikosApp.entities.Employee;
 import lt.codeacademy.javau8.PoliklinikosApp.repositories.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -19,77 +19,75 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-
-
-    private final List<Employee> employeesList = new ArrayList<>();
-    public List<Employee> getEmployeesDummy() {
-        List<Employee> empDummyList = new ArrayList<>();
-        Employee doctor1 = new Employee(101L, "Vardenis1", "Pavardenis1", "Doctor" );
-        Employee nurse1 = new Employee(102L, "Vardenis2", "Pavardenis2", "Nurse");
-
-        empDummyList.add(doctor1);
-        empDummyList.add(nurse1);
-
-        return empDummyList;
-    }
     
     ////////////////
     // CRUD methods:
     ////////////////
 
-    // Create
+
+
+    // Create (employee)
     public Employee addEmployee(Employee employee) {
-        employeesList.add(employee);
+        employeeRepository.save(employee);
         return employee;
     }
 
 
 
-    // Read (All)
+    // Read (All) (employee)
     public List<Employee> getAllEmployees() {
-        return employeesList;}
-    // Read (byID)
+        return employeeRepository.findAll();}
+
+
+    // Read (byID) (employee)
     public Optional<Employee> getEmployeeById(Long empID) {
-        Optional<Employee> employeeByID = employeesList.stream().filter(employee -> employee.getEmpID().equals(empID)).findFirst();
-        return employeeByID;}
+        Optional<Employee> employeeOptional = employeeRepository.findById(empID);
+        return employeeOptional;
+    }
 
 
-    // Update
-    public Employee editEmployee(long empID, Employee updatedEmployee) {
-        Optional<Employee> employeeOptional = getEmployeeById(empID);
-        if (employeeOptional.isPresent()){
-            Employee existingEmployee = employeeOptional.get();
+    // Update (employee)
+    public Optional<Employee> editEmployee(Employee employee) {
+        Optional<Employee> optionalEmployee = getEmployeeById(employee.getEmpID());
 
-            existingEmployee.setEmpName(updatedEmployee.getEmpName());
-            existingEmployee.setEmpSurname(updatedEmployee.getEmpSurname());
-            existingEmployee.setEmpContactInfo(updatedEmployee.getEmpContactInfo());
-            existingEmployee.setEmpCategory(updatedEmployee.getEmpCategory());
+        if (optionalEmployee.isPresent()) {
+            Employee existingEmployee = optionalEmployee.get();
+            existingEmployee.setEmpName(employee.getEmpName());
+            existingEmployee.setEmpSurname(employee.getEmpSurname());
+            existingEmployee.setEmpCategory(employee.getEmpCategory());
+            existingEmployee.setEmpContactInfo(employee.getEmpContactInfo());
 
-            return existingEmployee;
-
+            return Optional.of(employeeRepository.save(existingEmployee));
         } else {
-            return null;
+            return Optional.empty();
         }
     }
+    /*
+    // Update (employee)
+    public void editEmployee(Employee employee) {
 
-    public Employee editWithDummyData (Employee employee){
-        employee.setEmpName("Edited");
-        employee.setEmpSurname("Edited");
-        employee.setEmpCategory("Edited");
-        employee.setEmpContactInfo("Edited");
-        return employee;
+        getEmployeeById(employee.getEmpID())
+                .ifPresent(e -> {
+                    e.setEmpName(employee.getEmpName());
+                    e.setEmpSurname(employee.getEmpSurname());
+                    e.setEmpCategory(employee.getEmpCategory());
+                    e.setEmpContactInfo(employee.getEmpContactInfo());
+
+                    employeeRepository.save(e);
+                });
     }
+    */
 
-    // Delete
+
+    // Delete (employee)
     public void deleteEmployee(Long empID) {
-        Optional<Employee> employeeOptional =  getEmployeeById(empID);
-
-        if (employeeOptional.isPresent()) {
-            Employee employeeToBeDeleted = employeeOptional.get();
-            employeesList.remove(employeeToBeDeleted);
-        }
+        getEmployeeById(empID).ifPresent(employeeToBeDeleted -> employeeRepository.delete(employeeToBeDeleted));
     }
 
 
 
 }
+
+
+
+//

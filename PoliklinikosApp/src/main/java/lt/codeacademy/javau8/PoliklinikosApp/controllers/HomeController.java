@@ -9,11 +9,11 @@ import lt.codeacademy.javau8.PoliklinikosApp.entities.Patient;
 import lt.codeacademy.javau8.PoliklinikosApp.services.EmployeeService;
 import lt.codeacademy.javau8.PoliklinikosApp.services.MedicalProductService;
 import lt.codeacademy.javau8.PoliklinikosApp.services.PatientService;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
 
 @RestController
 @CrossOrigin
@@ -29,23 +29,6 @@ public class HomeController {
         this.medicalProductService = medicalProductService;
     }
 
-    @GetMapping("/patientsDummyAll")
-    public List<Patient> getAllPatientsDummy() {
-        return patientService.getPatientsDummy();
-    }
-
-    @GetMapping("/employeesDummyAll")
-    public List<Employee> getAllEmployeesDummy() {
-        return employeeService.getEmployeesDummy();
-    }
-
-    @GetMapping("/medicalServicesDummyAll")
-    public List<MedicalProduct> getAllMedicalServicesDummy() {
-        return medicalProductService.getMedicalServicesDummy();
-    }
-
-
-
 
     ////////////////////////////////////////////////////////////////////
     //////    Patients     /////////////////////////////////////////////
@@ -56,22 +39,6 @@ public class HomeController {
     public Patient addPatient(@RequestBody Patient patient) {
         return patientService.addPatient(patient);}
 
-    /*  Dummy data
-    {
-        "patientID": "10001",
-            "patientName": "AtnaujintasVardenis",
-            "patientSurname": "AtnaujintasPavardenis",
-            "patientContactInfo": "Vilnius",
-            "patientCategory": "New Patient"
-    }
-    {
-    "patientID": "10001",
-    "patientName": "NaujasVardenis",
-    "patientSurname": "NaujasPavardenis",
-    "patientContactInfo": "Vilnius",
-    "patientCategory": "New Patient"
-}
-    */
 
     // Read (All)  (Patients)
     @GetMapping("/patients/get/All")
@@ -81,36 +48,22 @@ public class HomeController {
 
     // Read (byID) (Patients)
     @GetMapping("/patients/get/{id}")
-    public Patient getPatientById(@PathVariable("id") long id, Model model) {
-        try {Patient patient = patientService.getPatientById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid patient Id:" + id));
-
-            model.addAttribute("patient", patient );
-            return patient;
-
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
+    public Optional<Patient> getPatientById(@PathVariable("id") long id) {
+        return patientService.getPatientById(id);
     }
 
-    // Update
+
+    // Update (Patients)
     @PutMapping("/patients/edit/{id}")
-    public Patient editPatient(@PathVariable("id") long id, @RequestBody Patient updatedPatient) {
-        Patient editedPatient = patientService.editPatient(id, updatedPatient);
-        return editedPatient;
+    public Optional<Patient> editPatient(@PathVariable("id") long id, @RequestBody Patient patient) {
+        return patientService.editPatient(patient);
     }
 
-    // Delete
-    @DeleteMapping("/patients/delete/{id}")
-    public String deletePatient(@PathVariable Long id) {
-        Optional <Patient> patientOptional = patientService.getPatientById(id);
-        if (patientOptional.isPresent()){
-        patientService.deletePatient(id);
-        return ("Patient ID" + id + " was deleted");
-        }else  {
-            return ("Patient ID" + id + " was not found");
-        }
 
+    // Delete (Patients)
+    @DeleteMapping("/patients/delete/{id}")
+    public void deletePatient(@PathVariable("id") long id) {
+        patientService.deletePatient(id);
     }
 
 
@@ -124,22 +77,7 @@ public class HomeController {
     public Employee addEmployee(@RequestBody Employee employee) {
         return employeeService.addEmployee(employee);}
 
-    /*  Dummy data
-    {
-        "empID": "10001",
-            "empName": "AtnaujintasVardenis",
-            "empSurname": "AtnaujintasPavardenis",
-            "empContactInfo": "Vilnius",
-            "empCategory": "Seimos gydytojas"
-    }
-    {
-    "empID": "10001",
-    "empName": "NaujasVardenis",
-    "empSurname": "NaujasPavardenis",
-    "empContactInfo": "Vilnius",
-    "empCategory": "Odontologas"
-}
-    */
+
 
     // Read (All)  (Employees)
     @GetMapping("/employees/get/All")
@@ -147,100 +85,66 @@ public class HomeController {
         return employeeService.getAllEmployees();}
 
 
+
     // Read (byID) (Employees)
     @GetMapping("/employees/get/{id}")
-    public Employee getEmployeeById(@PathVariable("id") long id, Model model) {
-        try {Employee employee = employeeService.getEmployeeById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid employee ID:" + id));
-
-            model.addAttribute("employee", employee );
-            return employee;
-
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
+    public Optional<Employee> getEmployeeById(@PathVariable("id") long id) {
+        return employeeService.getEmployeeById(id);
     }
+
 
     // Update (Employees)
     @PutMapping("/employees/edit/{id}")
-    public Employee editEmployee(@PathVariable("id") long id, @RequestBody Employee updatedEmployee) {
-        Employee editedEmployee = employeeService.editEmployee(id, updatedEmployee);
-        return editedEmployee;
+    public Optional<Employee> editEmployee(@PathVariable("id") long id, @RequestBody Employee employee) {
+        return employeeService.editEmployee(employee);
     }
 
-    // Delete (Employees)
-    @DeleteMapping("/employees/delete/{id}")
-    public String deleteEmployee(@PathVariable Long id) {
-        Optional <Employee> employeeOptional = employeeService.getEmployeeById(id);
-        if (employeeOptional.isPresent()){
-            employeeService.deleteEmployee(id);
-            return ("Employee ID " + id + " was deleted");
-        }else  {
-            return ("Employee ID " + id + " was not found");
-        }
 
+    // Delete (Employee)
+    @DeleteMapping("employees/delete/{id}")
+    public void deleteEmployee(@PathVariable("id") long id) {
+        employeeService.deleteEmployee(id);
     }
+
+
+
 
     ///////////////////////////////////////////////////////////////////
     //////    Medical Services     ///////////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
     // Create      (Medical Services)
-    @PostMapping("/medicalServices/add")
+    @PostMapping("/medicalProducts/add")
     public MedicalProduct addMedicalService(@RequestBody MedicalProduct medicalProduct) {
-        return medicalProductService.addMedicalService(medicalProduct);
+        return medicalProductService.addMedicalProduct(medicalProduct);
     }
 
-/*  Dummy data
-{
-    "servicesID": "10001",
-    "servicesTitle": "AtnaujintiTyrimai",
-    "servicesCategory": "Tyrimai"
-}
-{
-    "servicesID": "10002",
-    "servicesTitle": "NaujiKonsultacija",
-    "servicesCategory": "Konsultacijos"
-}
-*/
 
     // Read (All)  (Medical Services)
-    @GetMapping("/medicalServices/get/All")
-    public List<MedicalProduct> getAllMedicalServices() {
-        return medicalProductService.getAllMedicalServices();
+    @GetMapping("/medicalProducts/get/All")
+    public List<MedicalProduct> getAllMedicalProducts() {
+        return medicalProductService.getAllMedicalProducts();
     }
+
 
     // Read (byID) (Medical Services)
-    @GetMapping("/medicalServices/get/{id}")
-    public MedicalProduct getMedicalServiceById(@PathVariable("id") long id, Model model) {
-        try {
-            MedicalProduct medicalProduct = medicalProductService.getMedicalServiceById(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Invalid medical service ID:" + id));
-
-            model.addAttribute("medicalService", medicalProduct);
-            return medicalProduct;
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
+    @GetMapping("/medicalProducts/get/{id}")
+    public Optional<MedicalProduct> getMedicalSProductById(@PathVariable("id") long id) {
+        return medicalProductService.getMedicalProductById(id);
     }
+
 
     // Update (Medical Services)
-    @PutMapping("/medicalServices/edit/{id}")
-    public MedicalProduct editMedicalService(@PathVariable("id") long id, @RequestBody MedicalProduct updatedMedicalProduct) {
-        MedicalProduct editedMedicalProduct = medicalProductService.editMedicalService(id, updatedMedicalProduct);
-        return editedMedicalProduct;
+    @PutMapping("/medicalProducts/edit/{id}")
+    public void editMedicalProduct(@PathVariable("id") long id, @RequestBody MedicalProduct medicalProduct) {
+        medicalProductService.editMedicalProduct(medicalProduct);
     }
+
 
     // Delete (Medical Services)
     @DeleteMapping("/medicalServices/delete/{id}")
-    public String deleteMedicalService(@PathVariable Long id) {
-        Optional<MedicalProduct> medicalServiceOptional = medicalProductService.getMedicalServiceById(id);
-        if (medicalServiceOptional.isPresent()) {
-            medicalProductService.deleteMedicalService(id);
-            return ("Medical Service ID " + id + " was deleted");
-        } else {
-            return ("Medical Service ID " + id + " was not found");
-        }
+    public void deleteMedicalService(@PathVariable ("id") long id) {
+            medicalProductService.deleteMedicalProduct(id);
     }
 
 }

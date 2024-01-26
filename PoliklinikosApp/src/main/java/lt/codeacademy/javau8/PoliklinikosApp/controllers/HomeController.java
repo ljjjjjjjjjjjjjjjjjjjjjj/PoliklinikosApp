@@ -2,13 +2,9 @@
 package lt.codeacademy.javau8.PoliklinikosApp.controllers;
 
 
-import lt.codeacademy.javau8.PoliklinikosApp.entities.Employee;
-import lt.codeacademy.javau8.PoliklinikosApp.entities.MedicalProduct;
+import lt.codeacademy.javau8.PoliklinikosApp.entities.*;
 
-import lt.codeacademy.javau8.PoliklinikosApp.entities.Patient;
-import lt.codeacademy.javau8.PoliklinikosApp.services.EmployeeService;
-import lt.codeacademy.javau8.PoliklinikosApp.services.MedicalProductService;
-import lt.codeacademy.javau8.PoliklinikosApp.services.PatientService;
+import lt.codeacademy.javau8.PoliklinikosApp.services.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,11 +18,15 @@ public class HomeController {
    PatientService patientService;
    EmployeeService employeeService;
    MedicalProductService medicalProductService;
+   AppointmentService appointmentService;
+   MedicalRecordService medicalRecordService;
 
-    public HomeController(PatientService patientService, EmployeeService employeeService, MedicalProductService medicalProductService){
+    public HomeController (PatientService patientService, EmployeeService employeeService, MedicalProductService medicalProductService, AppointmentService appointmentService, MedicalRecordService medicalRecordService){
         this.patientService = patientService;
         this.employeeService = employeeService;
         this.medicalProductService = medicalProductService;
+        this.appointmentService = appointmentService;
+        this.medicalRecordService = medicalRecordService;
     }
 
 
@@ -146,5 +146,104 @@ public class HomeController {
     public void deleteMedicalService(@PathVariable ("id") long id) {
             medicalProductService.deleteMedicalProduct(id);
     }
+
+
+
+
+    ////////////////////////////////////////////////////////////////////
+    //////    Appointment     //////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+
+
+
+    // Create      (Appointments)
+    @PostMapping("/appointments/add")
+    public Appointment addAppointment(@RequestBody Appointment appointment) {
+        return appointmentService.addAppointment(appointment);}
+
+
+
+    // Read (All)  (Appointments)
+    @GetMapping("/appointments/get/All")
+    public List<Appointment> getAllAppointments() {
+        return appointmentService.getAllAppointments();}
+
+
+
+    // Read (byID) (Appointments)
+    @GetMapping("/appointments/get/{id}")
+    public Optional<Appointment> getAppointmentById(@PathVariable("id") long id) {
+        return appointmentService.getAppointmentById(id);
+    }
+
+
+    // Update (Appointments)
+    @PutMapping("/appointments/edit/{id}")
+    public Optional<Appointment> editAppointment(@PathVariable("id") long id, @RequestBody Appointment appointment) {
+        return appointmentService.editAppointment(appointment);
+    }
+
+
+    // Delete (Appointment)
+    @DeleteMapping("appointments/delete/{id}")
+    public void deleteAppointment(@PathVariable("id") long id) {
+        appointmentService.deleteAppointment(id);
+    }
+
+
+
+
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////
+    //////    Medical Records     ///////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
+
+    // Create      (Medical Records)
+    @PostMapping("/medicalRecords/add")
+    public MedicalRecord addMedicalService(@RequestBody MedicalRecord medicalRecord) {
+        return medicalRecordService.addMedicalRecord(medicalRecord);
+    }
+
+
+    // Read (All)  (Medical Records)
+    @GetMapping("/medicalRecords/get/All")
+    public List<MedicalRecord> getAllMedicalRecords() {
+        return medicalRecordService.getAllMedicalRecords();
+    }
+
+
+    // Read (byID) (Medical Records)
+    @GetMapping("/medicalRecords/get/{id}")
+    public Optional<MedicalRecord> getMedicalSRecordById(@PathVariable("id") long id) {
+        return medicalRecordService.getMedicalRecordById(id);
+    }
+
+
+    // Update (Medical Records)
+    @PutMapping("/medicalRecords/edit/{id}")
+    public void editMedicalRecord(@PathVariable("id") long id, @RequestBody MedicalRecord medicalRecord) {
+        medicalRecordService.editMedicalRecord(medicalRecord);
+    }
+
+
+    // Delete (Medical Records)
+    @DeleteMapping("/medicalRecords/delete/{id}")
+    public void deleteMedicalRecord(@PathVariable ("id") long id) {
+        medicalRecordService.deleteMedicalRecord(id);
+    }
+
+
+
+
+
+
+
+
+
 
 }

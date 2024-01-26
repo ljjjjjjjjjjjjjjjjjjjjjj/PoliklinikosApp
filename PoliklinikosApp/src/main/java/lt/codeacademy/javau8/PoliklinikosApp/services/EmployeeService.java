@@ -2,6 +2,7 @@
 package lt.codeacademy.javau8.PoliklinikosApp.services;
 
 import lt.codeacademy.javau8.PoliklinikosApp.entities.Employee;
+import lt.codeacademy.javau8.PoliklinikosApp.repositories.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +11,15 @@ import java.util.Optional;
 
 @Service
 public class EmployeeService {
+
+
+    public EmployeeRepository employeeRepository;
+
+    public EmployeeService( EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
+
+
 
     private final List<Employee> employeesList = new ArrayList<>();
     public List<Employee> getEmployeesDummy() {

@@ -2,16 +2,24 @@
 package lt.codeacademy.javau8.PoliklinikosApp.services;
 
 import lt.codeacademy.javau8.PoliklinikosApp.entities.Patient;
-import org.springframework.data.crossstore.ChangeSetPersister;
+import lt.codeacademy.javau8.PoliklinikosApp.repositories.PatientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PatientService {
+
+    public PatientRepository patientRepository;
+
+    public PatientService( PatientRepository patientRepository) {
+        this.patientRepository = patientRepository;
+    }
+
+
+
 
     // Dummy data:
     private final List<Patient> patientsList = new ArrayList<>();
@@ -45,7 +53,9 @@ public class PatientService {
         return patientsList;}
     // Read (byID)
     public Optional<Patient> getPatientById(Long patientId) {
-        Optional<Patient> patientByID = patientsList.stream().filter(patient -> patient.getPatientID().equals(patientId)).findFirst();
+        Optional<Patient> patientByID = patientsList
+                .stream()
+                .filter(patient -> patient.getPatientID().equals(patientId)).findFirst();
         return patientByID;}
 
 

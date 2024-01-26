@@ -110,39 +110,39 @@ public class HomeController {
 
 
     ///////////////////////////////////////////////////////////////////
-    //////    Medical Services     ///////////////////////////////////
+    //////    Medical Products     ///////////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    // Create      (Medical Services)
+    // Create      (Medical Products)
     @PostMapping("/medicalProducts/add")
     public MedicalProduct addMedicalService(@RequestBody MedicalProduct medicalProduct) {
         return medicalProductService.addMedicalProduct(medicalProduct);
     }
 
 
-    // Read (All)  (Medical Services)
+    // Read (All)  (Medical Products)
     @GetMapping("/medicalProducts/get/All")
     public List<MedicalProduct> getAllMedicalProducts() {
         return medicalProductService.getAllMedicalProducts();
     }
 
 
-    // Read (byID) (Medical Services)
+    // Read (byID) (Medical Products)
     @GetMapping("/medicalProducts/get/{id}")
     public Optional<MedicalProduct> getMedicalSProductById(@PathVariable("id") long id) {
         return medicalProductService.getMedicalProductById(id);
     }
 
 
-    // Update (Medical Services)
+    // Update (Medical Products)
     @PutMapping("/medicalProducts/edit/{id}")
     public void editMedicalProduct(@PathVariable("id") long id, @RequestBody MedicalProduct medicalProduct) {
         medicalProductService.editMedicalProduct(medicalProduct);
     }
 
 
-    // Delete (Medical Services)
-    @DeleteMapping("/medicalServices/delete/{id}")
+    // Delete (Medical Products)
+    @DeleteMapping("/medicalProducts/delete/{id}")
     public void deleteMedicalService(@PathVariable ("id") long id) {
             medicalProductService.deleteMedicalProduct(id);
     }

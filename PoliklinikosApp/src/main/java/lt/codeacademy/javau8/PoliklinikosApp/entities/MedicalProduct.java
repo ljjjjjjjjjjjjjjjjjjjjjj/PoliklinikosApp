@@ -3,6 +3,7 @@ package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,12 @@ public class MedicalProduct {
     // Lists & Objects:
     @ManyToMany(mappedBy = "empMedicalProducts")
     private List<Employee> productEmployees;
+
+    @ManyToMany(mappedBy = "patientMedicalProducts")
+    private List<Patient> productPatients;
+
+    @ManyToMany(mappedBy = "appMedicalProducts")
+    private List<Appointment> productAppointments;
 
 
 
@@ -51,15 +58,49 @@ public class MedicalProduct {
     public void setProductTitle(String productTitle) {
         this.productTitle = productTitle;}
 
+
+    // Lists & objects Getters & Setters:
+
+    public List<Employee> getProductEmployees() {
+        return productEmployees;}
+    public void setProductEmployees(List<Employee> productEmployees) {
+        this.productEmployees = productEmployees;}
+
+    public List<Patient> getProductPatients() {
+        return productPatients;}
+    public void setProductPatients(List<Patient> productPatients) {
+        this.productPatients = productPatients;}
+
+    public List<Appointment> getProductAppointments() {
+        return productAppointments;}
+    public void setAppAppointments(List<Appointment> productAppointments) {
+        this.productAppointments = productAppointments;}
+
+
+
+
     // Methods:
 
 
-    @Override
-    public String toString() {
-        return "MedicalProduct{" +
-                "productsID=" + productID +
-                ", productsTitle='" + productTitle + '\'' +
-                ", productsCategory='" + productCategory + '\'' +
-                '}';
+    public void addEmployees(Employee employee) {
+        if(productEmployees==null){
+            productEmployees = new ArrayList<>();
+        } productEmployees.add(employee);
     }
+
+
+    public void addPatients(Patient patient) {
+        if(productPatients==null){
+            productPatients = new ArrayList<>();
+        } productPatients.add(patient);
+    }
+
+
+    public void addAppointments(Appointment appointment) {
+        if(productAppointments==null){
+            productAppointments = new ArrayList<>();
+        } productAppointments.add(appointment);
+    }
+
+
 }

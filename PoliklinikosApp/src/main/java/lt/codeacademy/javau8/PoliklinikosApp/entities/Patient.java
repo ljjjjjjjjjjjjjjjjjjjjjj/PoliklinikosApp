@@ -3,6 +3,7 @@ package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,14 @@ public class Patient {
     String patientCategory;
 
     // Lists & Objects:
+    @OneToMany(mappedBy = "appPatient")
+    List<Appointment> patientAppointments;
+
+    @ManyToMany
+    @JoinTable(name = "productPatients_patientMedicalProducts",
+            joinColumns = @JoinColumn(name = "patientID"),
+            inverseJoinColumns = @JoinColumn(name = "productID"))
+    List<MedicalProduct> patientMedicalProducts;
 
 
 
@@ -100,17 +109,38 @@ public class Patient {
         this.patientCategory = patientCategory;
     }
 
+
+    // Lists & objects Getters & Setters:
+
+    public List<Appointment> getPatientAppointments() {
+        return patientAppointments;}
+    public void setPatientAppointments(List<Appointment> patientAppointments) {
+        this.patientAppointments = patientAppointments;}
+
+
+    public List<MedicalProduct> getPatientMedicalProducts() {
+        return patientMedicalProducts;}
+    public void setPatientMedicalProducts(List<MedicalProduct> patientMedicalProducts) {
+        this.patientMedicalProducts = patientMedicalProducts;}
+
+
+
+
+
     // Methods:
 
-
-    @Override
-    public String toString() {
-        return "Patient{" +
-                "patientID=" + patientID +
-                ", patientName='" + patientName + '\'' +
-                ", patientSurname='" + patientSurname + '\'' +
-                ", patientContactInfo='" + patientContactInfo + '\'' +
-                ", patientCategory='" + patientCategory + '\'' +
-                '}';
+    public void addMedicalProducts(MedicalProduct medicalProduct) {
+        if(patientMedicalProducts==null){
+            patientMedicalProducts = new ArrayList<>();
+        } patientMedicalProducts.add(medicalProduct);
     }
+
+
+    public void addAppointments(Appointment appointment) {
+        if(patientAppointments==null){
+            patientAppointments = new ArrayList<>();
+        } patientAppointments.add(appointment);
+    }
+
+
 }

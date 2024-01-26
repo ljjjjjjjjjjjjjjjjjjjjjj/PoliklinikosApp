@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +26,19 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "empID")
     Employee appEmployee;
+
+    @ManyToOne
+    @JoinColumn(name = "patientID")
+    Patient appPatient;
+
+    @ManyToMany
+    @JoinTable(name = "productAppointments_appMedicalProducts",
+            joinColumns = @JoinColumn(name = "appID"),
+            inverseJoinColumns = @JoinColumn(name = "productID"))
+    List<MedicalProduct> appMedicalProducts;
+
+
+
 
 
 
@@ -87,8 +101,25 @@ public class Appointment {
     public void setAppEmployee(Employee appEmployee) {
         this.appEmployee = appEmployee;}
 
+    public Patient getAppPatient() {
+        return appPatient;}
+    public void setAppPatient(Patient appPatient) {
+        this.appPatient = appPatient;}
+
+
+    public List<MedicalProduct> getAppMedicalProducts() {
+        return appMedicalProducts;}
+    public void setAppMedicalProducts(List<MedicalProduct> appMedicalProducts) {
+        this.appMedicalProducts = appMedicalProducts;}
+
+
 
     // Methods:
+    public void addMedicalProducts(MedicalProduct medicalProduct) {
+        if(appMedicalProducts==null){
+            appMedicalProducts = new ArrayList<>();
+        } appMedicalProducts.add(medicalProduct);
+    }
 
 
 

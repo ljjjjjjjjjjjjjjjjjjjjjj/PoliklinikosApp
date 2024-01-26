@@ -149,7 +149,6 @@ public class Employee {
         } empMedicalProducts.add(medicalProduct);
     }
 
-
     public void addAppointments(Appointment appointment) {
         if(empAppointments==null){
             empAppointments = new ArrayList<>();

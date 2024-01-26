@@ -1,10 +1,10 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -16,9 +16,33 @@ public class Employee {
     String empName;
     String empSurname;
     String empContactInfo;
-
     String empCategory;
 
+
+    // Lists & Objects:
+
+    @ManyToMany
+    @JoinTable(name = "productEmployees_empMedicalProducts",
+            joinColumns = @JoinColumn(name = "empID"),
+            inverseJoinColumns = @JoinColumn(name = "productID"))
+    List<MedicalProduct> empMedicalProducts;
+
+    @OneToMany(mappedBy = "appEmployee")
+    List<Appointment> empAppointments;
+
+    // Upcoming_Updates: List of Patients
+    /*
+    @ManyToMany
+    @JoinTable(name = "patientEmployees_empPatients",
+            joinColumns = @JoinColumn(name = "empID"),
+            inverseJoinColumns = @JoinColumn(name = "patientID"))
+    List<Patient> empPatients;
+    */
+    // Upcoming_Updates: List of MedicalRecords
+    /*
+    @OneToMany(mappedBy = "recordEmployee")
+    List<MedicalRecord> empMedicalRecords;
+    */
 
 
     // Constructors:
@@ -54,6 +78,9 @@ public class Employee {
 
     }
 
+
+
+
     // Getters & Setters:
 
     public Long getEmpID() {
@@ -82,20 +109,71 @@ public class Employee {
         this.empCategory = empCategory;}
 
 
+    // Lists & objects Getters & Setters:
+
+    public List<MedicalProduct> getEmpMedicalProducts() {
+        return empMedicalProducts;}
+    public void setEmpMedicalProducts(List<MedicalProduct> empMedicalProducts) {
+        this.empMedicalProducts = empMedicalProducts;}
+
+    public List<Appointment> getEmpAppointments() {
+        return empAppointments;}
+    public void setEmpAppointments(List<Appointment> empAppointments) {
+        this.empAppointments = empAppointments;}
+
+
+    // Upcoming_Updates: List of Patients
+    /*
+    public List<Patient> getEmpPatients() {
+        return empPatients;}
+    public void setEmpPatients(List<Patient> empPatients) {
+        this.empPatients = empPatients;}
+    */
+
+    // Upcoming_Updates:MedicalRecord
+    /*
+    public List<Upcoming_Updates_MedicalRecord> getEmpMedicalRecords() {
+        return empMedicalRecords;}
+
+    public void setEmpMedicalRecords(List<Upcoming_Updates_MedicalRecord> empMedicalRecords) {
+        this.empMedicalRecords = empMedicalRecords;}
+   */
+
 
 
     // Methods:
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "empID=" + empID +
-                ", empName='" + empName + '\'' +
-                ", empSurname='" + empSurname + '\'' +
-                ", empContactInfo='" + empContactInfo + '\'' +
-                ", empCategory='" + empCategory + '\'' +
-                '}';
+    public void addMedicalProducts(MedicalProduct medicalProduct) {
+        if(empMedicalProducts==null){
+            empMedicalProducts = new ArrayList<>();
+        } empMedicalProducts.add(medicalProduct);
     }
+
+
+    public void addAppointments(Appointment appointment) {
+        if(empAppointments==null){
+            empAppointments = new ArrayList<>();
+        } empAppointments.add(appointment);
+    }
+
+
+    // Upcoming_Updates: List of Patients
+    /*
+    public void addPatients(Patient patient) {
+        if(empPatients==null){
+            empPatients = new ArrayList<>();
+        } empPatients.add(patient);
+    }
+    */
+    // Upcoming_Updates: List of Patients
+    /*
+    public void addMedicalRecordss(Upcoming_Updates_MedicalRecord medicalRecord) {
+        if(empMedicalRecords==null){
+            empMedicalRecords = new ArrayList<>();
+        } empMedicalRecords.add(medicalRecord);
+    }
+    */
+
 
 
 }

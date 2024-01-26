@@ -19,14 +19,14 @@ public class HomeController {
    EmployeeService employeeService;
    MedicalProductService medicalProductService;
    AppointmentService appointmentService;
-   MedicalRecordService medicalRecordService;
+   // Upcoming_Updates_MedicalRecordService medicalRecordService;
 
-    public HomeController (PatientService patientService, EmployeeService employeeService, MedicalProductService medicalProductService, AppointmentService appointmentService, MedicalRecordService medicalRecordService){
+    public HomeController (PatientService patientService, EmployeeService employeeService, MedicalProductService medicalProductService, AppointmentService appointmentService){
         this.patientService = patientService;
         this.employeeService = employeeService;
         this.medicalProductService = medicalProductService;
         this.appointmentService = appointmentService;
-        this.medicalRecordService = medicalRecordService;
+
     }
 
 
@@ -203,30 +203,33 @@ public class HomeController {
     //////    Medical Records     ///////////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
+    /*
+
+
     // Create      (Medical Records)
     @PostMapping("/medicalRecords/add")
-    public MedicalRecord addMedicalService(@RequestBody MedicalRecord medicalRecord) {
+    public Upcoming_Updates_MedicalRecord addMedicalService(@RequestBody Upcoming_Updates_MedicalRecord medicalRecord) {
         return medicalRecordService.addMedicalRecord(medicalRecord);
     }
 
 
     // Read (All)  (Medical Records)
     @GetMapping("/medicalRecords/get/All")
-    public List<MedicalRecord> getAllMedicalRecords() {
+    public List<Upcoming_Updates_MedicalRecord> getAllMedicalRecords() {
         return medicalRecordService.getAllMedicalRecords();
     }
 
 
     // Read (byID) (Medical Records)
     @GetMapping("/medicalRecords/get/{id}")
-    public Optional<MedicalRecord> getMedicalSRecordById(@PathVariable("id") long id) {
+    public Optional<Upcoming_Updates_MedicalRecord> getMedicalSRecordById(@PathVariable("id") long id) {
         return medicalRecordService.getMedicalRecordById(id);
     }
 
 
     // Update (Medical Records)
     @PutMapping("/medicalRecords/edit/{id}")
-    public void editMedicalRecord(@PathVariable("id") long id, @RequestBody MedicalRecord medicalRecord) {
+    public void editMedicalRecord(@PathVariable("id") long id, @RequestBody Upcoming_Updates_MedicalRecord medicalRecord) {
         medicalRecordService.editMedicalRecord(medicalRecord);
     }
 
@@ -240,6 +243,7 @@ public class HomeController {
 
 
 
+*/
 
 
 

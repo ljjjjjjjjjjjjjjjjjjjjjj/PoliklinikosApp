@@ -1,18 +1,11 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
+public class Upcoming_Updates_MedicalRecord {
 
-@Entity
-public class MedicalRecord {
+/*
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long recordID;
@@ -20,6 +13,12 @@ public class MedicalRecord {
     String recordDate;
     // LocalDateTime recordDate;
     String recordContent;
+
+    // Lists and objects:
+
+    @ManyToOne
+    @JoinColumn(name = "empID")
+    Employee recordEmployee;
 
 
     // Constructors:
@@ -71,12 +70,21 @@ public class MedicalRecord {
         this.recordContent = recordContent;}
 
 
+    // Lists & objects Getters & Setters:
+
+    @ManyToOne
+    @JoinColumn(name = "empid")
+    public Employee getRecordEmployee() {
+        return recordEmployee;}
+    public void setRecordEmployee(Employee recordEmployee) {
+        this.recordEmployee = recordEmployee;}
 
 
     // Methods:
 
 
 
+*/
 
 
 

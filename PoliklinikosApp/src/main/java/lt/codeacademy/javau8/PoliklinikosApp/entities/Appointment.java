@@ -1,10 +1,7 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -21,6 +18,13 @@ public class Appointment {
     String appReason;
     String appDate;
     // LocalDateTime appDate; to be updated
+
+
+    //Lists & objects:
+
+    @ManyToOne
+    @JoinColumn(name = "empID")
+    Employee appEmployee;
 
 
 
@@ -72,6 +76,17 @@ public class Appointment {
         return appDate;}
     public void setAppDate(String appDate) {
         this.appDate = appDate;}
+
+
+
+
+    // Lists & objects Getters & Setters:
+
+    public Employee getAppEmployee() {
+        return appEmployee;}
+    public void setAppEmployee(Employee appEmployee) {
+        this.appEmployee = appEmployee;}
+
 
     // Methods:
 

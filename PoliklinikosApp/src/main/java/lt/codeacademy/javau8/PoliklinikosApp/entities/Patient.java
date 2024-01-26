@@ -1,10 +1,9 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Patient {
@@ -16,6 +15,16 @@ public class Patient {
     String patientSurname;
     String patientContactInfo;
     String patientCategory;
+
+    // Lists & Objects:
+
+
+
+    // Upcoming_Updates: List of Patients
+    /*
+    @ManyToMany(mappedBy = "empPatients")
+    private List<Employee> patientEmployees;
+    */
 
 
     // Constructors:

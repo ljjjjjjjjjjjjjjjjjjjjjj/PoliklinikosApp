@@ -56,6 +56,7 @@ public class EmployeeService {
             existingEmployee.setEmpSurname(employee.getEmpSurname());
             existingEmployee.setEmpCategory(employee.getEmpCategory());
             existingEmployee.setEmpContactInfo(employee.getEmpContactInfo());
+            existingEmployee.setImageUrl(employee.getImageUrl());
 
             return Optional.of(employeeRepository.save(existingEmployee));
         } else {

@@ -1,13 +1,12 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Entity
 public class Appointment {
@@ -31,8 +30,10 @@ public class Appointment {
     @JoinColumn(name = "patientID")
     Patient appPatient;
 
+
+    @JsonIgnore
     @ManyToMany
-    @JoinTable(name = "productAppointments_appMedicalProducts",
+    @JoinTable(name = "products_appointments",
             joinColumns = @JoinColumn(name = "appID"),
             inverseJoinColumns = @JoinColumn(name = "productID"))
     List<MedicalProduct> appMedicalProducts;
@@ -70,7 +71,7 @@ public class Appointment {
 
 
 
-    // Getters & Setters
+    // Getters & Listters
     public Long getAppID() {
         return appID;}
     public void setAppID(Long appID) {
@@ -94,7 +95,7 @@ public class Appointment {
 
 
 
-    // Lists & objects Getters & Setters:
+    // Lists & objects Getters & Listters:
 
     public Employee getAppEmployee() {
         return appEmployee;}

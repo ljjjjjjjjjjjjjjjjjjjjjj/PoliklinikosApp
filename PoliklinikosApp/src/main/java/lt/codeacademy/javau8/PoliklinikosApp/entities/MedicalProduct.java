@@ -1,9 +1,12 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.List;
 
 @Entity
@@ -16,12 +19,17 @@ public class MedicalProduct {
 
 
     // Lists & Objects:
-    @ManyToMany(mappedBy = "empMedicalProducts")
+    @JsonIgnore
+    @ManyToMany(mappedBy = "empMedicalProducts", cascade = CascadeType.PERSIST)
     private List<Employee> productEmployees;
 
+
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "patientMedicalProducts")
     private List<Patient> productPatients;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "appMedicalProducts")
     private List<Appointment> productAppointments;
 
@@ -42,7 +50,7 @@ public class MedicalProduct {
         this.productCategory = productCategory;
     }
 
-    // Getters & Setters
+    // Getters & Listters
     public Long getProductID() {
         return productID;}
     public void setProductID(Long productID) {
@@ -59,7 +67,7 @@ public class MedicalProduct {
         this.productTitle = productTitle;}
 
 
-    // Lists & objects Getters & Setters:
+    // Lists & objects Getters & Listters:
 
     public List<Employee> getProductEmployees() {
         return productEmployees;}
@@ -85,7 +93,25 @@ public class MedicalProduct {
     public void addEmployees(Employee employee) {
         if(productEmployees==null){
             productEmployees = new ArrayList<>();
-        } productEmployees.add(employee);
+        }
+        productEmployees.add(employee);
+
+/*
+
+        if (employee.getEmpMedicalProducts() == null ) {
+            employee.addMedicalProducts(this);
+            return;
+        }
+
+
+        if (employee.getEmpMedicalProducts().contains(this) ) {
+            return;
+        } else {
+            employee.addMedicalProducts(this);
+        }
+
+*/
+
     }
 
 

@@ -1,9 +1,12 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.List;
 
 @Entity
@@ -17,18 +20,25 @@ public class Employee {
     String empSurname;
     String empContactInfo;
     String empCategory;
+    String imageUrl;
 
 
     // Lists & Objects:
-
-    @ManyToMany
-    @JoinTable(name = "productEmployees_empMedicalProducts",
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "products_employees",
             joinColumns = @JoinColumn(name = "empID"),
             inverseJoinColumns = @JoinColumn(name = "productID"))
     List<MedicalProduct> empMedicalProducts;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "appEmployee")
     List<Appointment> empAppointments;
+
+
+
+
 
     // Upcoming_Updates: List of Patients
     /*
@@ -46,12 +56,15 @@ public class Employee {
 
 
     // Constructors:
-    public Employee() {}
+    public Employee() {
+
+    }
 
     public Employee(String empName, String empSurname, String empCategory) {
         this.empName = empName;
         this.empSurname = empSurname;
         this.empCategory = empCategory;
+
     }
 
     public Employee(Long empID, String empName, String empSurname, String empCategory) {
@@ -69,19 +82,25 @@ public class Employee {
 
     }
 
-    public Employee(Long empID, String empName, String empSurname, String empContactInfo, String empCategory) {
+    public Employee(Long empID, String empName, String empSurname, String empContactInfo, String empCategory,String imageUrl) {
         this.empID = empID;
         this.empName = empName;
         this.empSurname = empSurname;
         this.empContactInfo = empContactInfo;
         this.empCategory = empCategory;
+        this.imageUrl = imageUrl;
 
     }
 
+    public Employee(String empName, String empSurname, String empContactInfo, String empCategory, String imageUrl) {
+        this.empName = empName;
+        this.empSurname = empSurname;
+        this.empContactInfo = empContactInfo;
+        this.empCategory = empCategory;
+        this.imageUrl = imageUrl;
+    }
 
-
-
-    // Getters & Setters:
+    // Getters & Listters:
 
     public Long getEmpID() {
         return empID;}
@@ -108,8 +127,13 @@ public class Employee {
     public void setEmpCategory(String empCategory) {
         this.empCategory = empCategory;}
 
+    public String getImageUrl() {
+        return imageUrl;}
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;}
 
-    // Lists & objects Getters & Setters:
+
+    // Lists & objects Getters & Listters:
 
     public List<MedicalProduct> getEmpMedicalProducts() {
         return empMedicalProducts;}
@@ -146,14 +170,34 @@ public class Employee {
     public void addMedicalProducts(MedicalProduct medicalProduct) {
         if(empMedicalProducts==null){
             empMedicalProducts = new ArrayList<>();
-        } empMedicalProducts.add(medicalProduct);
+        }
+        empMedicalProducts.add(medicalProduct);
+
+        /*
+        if (medicalProduct.getProductEmployees().contains(this)) {
+            return;
+        } else {
+            medicalProduct.addEmployees(this);
+        }*/
     }
+
+    public void removeMedicalProducts(MedicalProduct medicalProduct) {
+        if (empMedicalProducts != null && empMedicalProducts.contains(medicalProduct)) {
+            empMedicalProducts.remove(medicalProduct);
+        }
+    }
+
 
     public void addAppointments(Appointment appointment) {
         if(empAppointments==null){
             empAppointments = new ArrayList<>();
-        } empAppointments.add(appointment);
+        }
+        empAppointments.add(appointment);
+        appointment.setAppEmployee(this);
     }
+
+
+
 
 
     // Upcoming_Updates: List of Patients

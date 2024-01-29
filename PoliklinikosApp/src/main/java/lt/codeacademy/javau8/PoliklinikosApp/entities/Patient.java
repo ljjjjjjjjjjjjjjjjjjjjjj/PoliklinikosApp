@@ -1,9 +1,12 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.List;
 
 @Entity
@@ -18,11 +21,13 @@ public class Patient {
     String patientCategory;
 
     // Lists & Objects:
+    @JsonIgnore
     @OneToMany(mappedBy = "appPatient")
     List<Appointment> patientAppointments;
 
+    @JsonIgnore
     @ManyToMany
-    @JoinTable(name = "productPatients_patientMedicalProducts",
+    @JoinTable(name = "products_patients",
             joinColumns = @JoinColumn(name = "patientID"),
             inverseJoinColumns = @JoinColumn(name = "productID"))
     List<MedicalProduct> patientMedicalProducts;
@@ -67,7 +72,7 @@ public class Patient {
         this.patientCategory = patientCategory;
     }
 
-    // Getters & Setters:
+    // Getters & Listters:
 
     public Long getPatientID() {
         return patientID;
@@ -110,7 +115,7 @@ public class Patient {
     }
 
 
-    // Lists & objects Getters & Setters:
+    // Lists & objects Getters & Listters:
 
     public List<Appointment> getPatientAppointments() {
         return patientAppointments;}
@@ -122,6 +127,8 @@ public class Patient {
         return patientMedicalProducts;}
     public void setPatientMedicalProducts(List<MedicalProduct> patientMedicalProducts) {
         this.patientMedicalProducts = patientMedicalProducts;}
+
+
 
 
 

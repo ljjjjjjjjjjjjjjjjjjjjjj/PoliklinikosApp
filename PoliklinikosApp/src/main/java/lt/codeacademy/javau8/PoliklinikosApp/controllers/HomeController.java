@@ -5,6 +5,8 @@ package lt.codeacademy.javau8.PoliklinikosApp.controllers;
 import lt.codeacademy.javau8.PoliklinikosApp.entities.*;
 
 import lt.codeacademy.javau8.PoliklinikosApp.services.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +30,8 @@ public class HomeController {
         this.appointmentService = appointmentService;
 
     }
+
+    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
 
     ////////////////////////////////////////////////////////////////////
@@ -80,7 +84,7 @@ public class HomeController {
 
 
     // Read (All)  (Employees)
-    @GetMapping("/employees/get/All")
+    @GetMapping("/employees/get/all")
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();}
 
@@ -114,35 +118,35 @@ public class HomeController {
     ///////////////////////////////////////////////////////////////////
 
     // Create      (Medical Products)
-    @PostMapping("/medicalProducts/add")
+    @PostMapping("/medical-products/add")
     public MedicalProduct addMedicalService(@RequestBody MedicalProduct medicalProduct) {
         return medicalProductService.addMedicalProduct(medicalProduct);
     }
 
 
     // Read (All)  (Medical Products)
-    @GetMapping("/medicalProducts/get/All")
+    @GetMapping("/medical-products/get/all")
     public List<MedicalProduct> getAllMedicalProducts() {
         return medicalProductService.getAllMedicalProducts();
     }
 
 
     // Read (byID) (Medical Products)
-    @GetMapping("/medicalProducts/get/{id}")
+    @GetMapping("/medical-products/get/{id}")
     public Optional<MedicalProduct> getMedicalSProductById(@PathVariable("id") long id) {
         return medicalProductService.getMedicalProductById(id);
     }
 
 
     // Update (Medical Products)
-    @PutMapping("/medicalProducts/edit/{id}")
+    @PutMapping("/medical-products/edit/{id}")
     public void editMedicalProduct(@PathVariable("id") long id, @RequestBody MedicalProduct medicalProduct) {
         medicalProductService.editMedicalProduct(medicalProduct);
     }
 
 
     // Delete (Medical Products)
-    @DeleteMapping("/medicalProducts/delete/{id}")
+    @DeleteMapping("/medical-products/delete/{id}")
     public void deleteMedicalService(@PathVariable ("id") long id) {
             medicalProductService.deleteMedicalProduct(id);
     }
@@ -164,7 +168,7 @@ public class HomeController {
 
 
     // Read (All)  (Appointments)
-    @GetMapping("/appointments/get/All")
+    @GetMapping("/appointments/get/all")
     public List<Appointment> getAllAppointments() {
         return appointmentService.getAllAppointments();}
 

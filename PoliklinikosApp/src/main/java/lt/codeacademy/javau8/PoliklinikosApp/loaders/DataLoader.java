@@ -54,7 +54,7 @@ public class DataLoader implements CommandLineRunner {
 
 
 
-        // Patient
+        // Patients
         Patient patient1 = new Patient("Petras", "Petraitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "petras1@yahoo.com", "I");
         Patient  patient2 = new Patient ("Onute", "Onutiene", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "onute@yahoo.com", "I");
         Patient  patient3 = new Patient ("Mantas", "Mantaitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "mantas@yahoo.com", "I");

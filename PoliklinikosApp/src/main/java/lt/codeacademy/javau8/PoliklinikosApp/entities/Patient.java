@@ -17,7 +17,9 @@ public class Patient {
 
     String patientName;
     String patientSurname;
-    String patientContactInfo;
+    String patientAddress;
+    String patientPhone;
+    String patientEmail;
     String patientCategory;
 
     // Lists & Objects:
@@ -57,18 +59,22 @@ public class Patient {
         this.patientSurname = patientSurname;
     }
 
-    public Patient(String patientName, String patientSurname, String patientContactInfo, String patientCategory) {
+    public Patient(String patientName, String patientSurname, String patientAddress, String patientPhone,  String patientEmail, String patientCategory) {
         this.patientName = patientName;
         this.patientSurname = patientSurname;
-        this.patientContactInfo = patientContactInfo;
+        this.patientAddress = patientAddress;
+        this.patientPhone = patientPhone;
+        this.patientEmail = patientEmail;
         this.patientCategory = patientCategory;
     }
 
-    public Patient(Long patientID, String patientName, String patientSurname, String patientContactInfo, String patientCategory) {
+    public Patient(Long patientID, String patientName, String patientSurname, String patientAddress, String patientPhone,  String patientEmail, String patientCategory) {
         this.patientID = patientID;
         this.patientName = patientName;
         this.patientSurname = patientSurname;
-        this.patientContactInfo = patientContactInfo;
+        this.patientAddress = patientAddress;
+        this.patientPhone = patientPhone;
+        this.patientEmail = patientEmail;
         this.patientCategory = patientCategory;
     }
 
@@ -77,7 +83,6 @@ public class Patient {
     public Long getPatientID() {
         return patientID;
     }
-
     public void setPatientID(Long patientID) {
         this.patientID = patientID;
     }
@@ -85,7 +90,6 @@ public class Patient {
     public String getPatientName() {
         return patientName;
     }
-
     public void setPatientName(String patientName) {
         this.patientName = patientName;
     }
@@ -93,23 +97,29 @@ public class Patient {
     public String getPatientSurname() {
         return patientSurname;
     }
-
     public void setPatientSurname(String patientSurname) {
         this.patientSurname = patientSurname;
     }
 
-    public String getPatientContactInfo() {
-        return patientContactInfo;
-    }
 
-    public void setPatientContactInfo(String patientContactInfo) {
-        this.patientContactInfo = patientContactInfo;
-    }
+    public String getPatientAddress() {
+        return patientAddress;}
+    public void setPatientAddress(String patientAddress) {
+        this.patientAddress = patientAddress;}
+
+    public String getPatientPhone() {
+        return patientPhone;}
+    public void setPatientPhone(String patientPhone) {
+        this.patientPhone = patientPhone;}
+
+    public String getPatientEmail() {
+        return patientEmail;}
+    public void setPatientEmail(String patientEmail) {
+        this.patientEmail = patientEmail;}
 
     public String getPatientCategory() {
         return patientCategory;
     }
-
     public void setPatientCategory(String patientCategory) {
         this.patientCategory = patientCategory;
     }

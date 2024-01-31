@@ -56,6 +56,7 @@ public class MedicalProductService {
             MedicalProduct existingMedicalProduct = optionalMedicalProduct.get();
             existingMedicalProduct.setProductTitle(medicalProduct.getProductTitle());
             existingMedicalProduct.setProductCategory(medicalProduct.getProductCategory());
+            existingMedicalProduct.setProductSubCategory(medicalProduct.getProductSubCategory());
 
             return Optional.of(medicalProductRepository.save(existingMedicalProduct));
 

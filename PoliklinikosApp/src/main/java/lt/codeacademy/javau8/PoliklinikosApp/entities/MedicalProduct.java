@@ -17,6 +17,8 @@ public class MedicalProduct {
     String productTitle;
     String productCategory;
 
+    String productSubCategory;
+
 
     // Lists & Objects:
     @JsonIgnore
@@ -44,9 +46,17 @@ public class MedicalProduct {
         this.productCategory = productCategory;
     }
 
-    public MedicalProduct(Long productID, String productTitle, String productCategory) {
+    public MedicalProduct(String productTitle,  String productSubCategory, String productCategory) {
+        this.productTitle = productTitle;
+        this.productSubCategory = productSubCategory;
+        this.productCategory = productCategory;
+
+    }
+
+    public MedicalProduct(Long productID, String productTitle, String productSubCategory, String productCategory) {
         this.productID = productID;
         this.productTitle = productTitle;
+        this.productSubCategory = productSubCategory;
         this.productCategory = productCategory;
     }
 
@@ -81,9 +91,16 @@ public class MedicalProduct {
 
     public List<Appointment> getProductAppointments() {
         return productAppointments;}
-    public void setAppAppointments(List<Appointment> productAppointments) {
-        this.productAppointments = productAppointments;}
+    public void setProductAppointments(List<Appointment> productAppointments) {
+        this.productAppointments = productAppointments;
+    }
 
+    public String getProductSubCategory() {
+        return productSubCategory;
+    }
+    public void setProductSubCategory(String productSubCategory) {
+        this.productSubCategory = productSubCategory;
+    }
 
 
 

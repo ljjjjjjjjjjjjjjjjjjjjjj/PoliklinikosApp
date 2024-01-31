@@ -39,57 +39,64 @@ public class DataLoader implements CommandLineRunner {
 
 
         // Employees
-        Employee employee0 = new Employee("Rasa", "Jankauskiene", "Subaciaus.g 1-10, Vilniaus m., +370 620 57108", "Direktore", "/imagesEmployees/Employee_profile.png");
-        Employee employee1 = new Employee("Petras", "Petraitis", "Didzioji.g 1-11, Vilniaus m., +370 620 57108", "Ukvedys","/imagesEmployees/Employee_profile.png");
-        Employee employee2 = new Employee("Alina","Jersova", "+370 612 34567", "Vyr. Slaugytoja", "/imagesEmployees/Employee_profile.png");
-        Employee employee3 = new Employee("Viktorija", "Viktoriene", "+370 612 34567", "Slaugytoja" , "/imagesEmployees/Employee_profile.png");
-        Employee employee4 = new Employee("Juste", "Justutyte", "+370 612 34567", "Seimos Gydytoja" , "/imagesEmployees/Employee_profile.png");
-        Employee employee5 = new Employee("Olga", "Osokina", "+370 612 34567", "Seimos Gydytoja", "/imagesEmployees/Employee_profile.png");
-        Employee employee6 = new Employee("Onute","Onutiene", "+370 612 34567", "Seimos Gydytoja", "/imagesEmployees/Employee_profile.png");
-        Employee employee7 = new Employee("Justina", "Justauskaite", "+370 612 34567", "LOR", "/imagesEmployees/Employee_profile.png");
-        Employee employee8 = new Employee("Jonas", "Jonaitis", "+370 612 34567", "Traumatologas", "/imagesEmployees/Employee_profile.png");
-        Employee employee9 = new Employee("Aiste", "Aistiene", "+370 612 34567","Dermatologe", "/imagesEmployees/Employee_profile.png");
-        Employee employee10 = new Employee("Irena", "Ireniene", "+370 612 34567", "Neurologe", "/imagesEmployees/Employee_profile.png");
-        Employee employee11 = new Employee("Gryte", "Grytaite","+370 612 34567", "Odontologe" , "/imagesEmployees/Employee_profile.png");
+        Employee employee0 = new Employee("Rasa", "Jankauskiene", "Subaciaus.g 1-10, Vilniaus m.", "+370 620 57108", "rasa@outlook.com", "Direktore", "/imagesEmployees/Employee_profile.png");
+        Employee employee1 = new Employee("Petras", "Petraitis", "Didzioji.g 1-11, Vilniaus m.", "+370 620 57108", "petras@gmail.com", "Ukvedys","/imagesEmployees/Employee_profile.png");
+        Employee employee2 = new Employee("Alina","Jersova", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "alina@gmail.com", "Vyr. Slaugytoja", "/imagesEmployees/Employee_profile.png");
+        Employee employee3 = new Employee("Viktorija", "Viktoriene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "viktorija@gmail.com", "Slaugytoja" , "/imagesEmployees/Employee_profile.png");
+        Employee employee4 = new Employee("Juste", "Justutyte", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "juste@gmail.com", "Seimos Gydytoja" , "/imagesEmployees/Employee_profile.png");
+        Employee employee5 = new Employee("Olga", "Osokina", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "olga@gmail.com", "Seimos Gydytoja", "/imagesEmployees/Employee_profile.png");
+        Employee employee6 = new Employee("Onute","Onutiene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "ona@gmail.com", "Seimos Gydytoja", "/imagesEmployees/Employee_profile.png");
+        Employee employee7 = new Employee("Justina", "Justauskaite", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "justina@gmail.com", "LOR", "/imagesEmployees/Employee_profile.png");
+        Employee employee8 = new Employee("Jonas", "Jonaitis", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "jonas@gmail.com", "Traumatologas", "/imagesEmployees/Employee_profile.png");
+        Employee employee9 = new Employee("Aiste", "Aistiene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "aiste@gmail.com", "Dermatologe", "/imagesEmployees/Employee_profile.png");
+        Employee employee10 = new Employee("Irena", "Ireniene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "irena@gmail.com", "Neurologe", "/imagesEmployees/Employee_profile.png");
+        Employee employee11 = new Employee("Gryte", "Grytaite", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "gryte@gmail.com", "Odontologe" , "/imagesEmployees/Employee_profile.png");
 
 
 
         // Patient
-        Patient patient1 = new Patient("Petras", "Petraitis", "Vilniaus g. 1-11", "I");
-        Patient  patient2 = new Patient ("Onute", "Onutiene", "Vilniaus g. 1-11", "I");
-        Patient  patient3 = new Patient ("Mantas", "Mantaitis", "Vilniaus g. 1-11", "I");
-        Patient  patient4 = new Patient ("Juste", "Justiene", "Vilniaus g. 1-11", "I");
-        Patient  patient5 = new Patient ("Vytautas", "Vytautitis", "Vilniaus g. 1-11", "I");
+        Patient patient1 = new Patient("Petras", "Petraitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "petras1@yahoo.com", "I");
+        Patient  patient2 = new Patient ("Onute", "Onutiene", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "onute@yahoo.com", "I");
+        Patient  patient3 = new Patient ("Mantas", "Mantaitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "mantas@yahoo.com", "I");
+        Patient  patient4 = new Patient ("Juste", "Justiene", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "juste@yahoo.com", "I");
+        Patient  patient5 = new Patient ("Vytautas", "Vytautitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "vytautas@yahoo.com", "I");
 
-        Patient  patient6 = new Patient ("Jolanta", "Jolantiene", "Vilniaus g. 1-11", "I");
-        Patient  patient7 = new Patient ("Medas", "Medutis", "Vilniaus g. 1-11", "I");
-        Patient  patient8 = new Patient ("Petras", "Petraitis", "Vilniaus g. 1-22", "II");
-        Patient  patient9 = new Patient ("Rytis", "Rytenas", "Vilniaus g. 1-11", "I");
-        Patient  patient10 = new Patient ("Jonas", "Jonaits", "Vilniaus g. 1-11", "I");
+        Patient  patient6 = new Patient ("Jolanta", "Jolantiene", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "jolanta@yahoo.com", "I");
+        Patient  patient7 = new Patient ("Medas", "Medutis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "medas@yahoo.com", "I");
+        Patient  patient8 = new Patient ("Petras", "Petraitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "petras2@yahoo.com", "II");
+        Patient  patient9 = new Patient ("Rytis", "Rytenas", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "rytis@yahoo.com", "I");
+        Patient  patient10 = new Patient ("Jonas", "Jonaits", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "jonas@yahoo.com", "I");
 
-        Patient  patient11 = new Patient ("Egle", "Eglaite", "Vilniaus g. 1-11", "I");
-        Patient  patient12 = new Patient ("Aleksandra", "Aleksandraite", "Vilniaus g. 1-11", "I");
+        Patient  patient11 = new Patient ("Egle", "Eglaite", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "egle@yahoo.com", "I");
+        Patient  patient12 = new Patient ("Aleksandra", "Aleksandraite", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "aleksandra@yahoo.com", "I");
 
 
         // MedicalProducts
-        MedicalProduct medicalProduct1 = new MedicalProduct("Seimos gydytojo konsultacija - gyvai", "Konsultacija. Pirminis lygis");
-        MedicalProduct medicalProduct2 = new MedicalProduct("Seimos gydytojo konsultacija - telefonu", "Konsultacija. Pirminis lygis");
-        MedicalProduct medicalProduct3 = new MedicalProduct("LOR konsultacija", "Konsultacija. Antrinis lygis");
-        MedicalProduct medicalProduct4 = new MedicalProduct("Traumatologo konsultacija", "Konsultacija. Antrinis lygis");
-        MedicalProduct medicalProduct5 = new MedicalProduct("Dermatologo konsultacija", "Konsultacija. Antrinis lygis");
-        MedicalProduct medicalProduct6 = new MedicalProduct("Neurologo konsultacija", "Konsultacija. Antrinis lygis");
-        MedicalProduct medicalProduct7 = new MedicalProduct("Odontologo konsultacija", "Konsultacija. Pirminis lygis");
-        MedicalProduct medicalProduct8 = new MedicalProduct("Odontologo konsultacija", "Konsultacija. Antrinis lygis");
-        MedicalProduct medicalProduct9 = new MedicalProduct("Bendrinis kraujo tyrimas", "Tyrimai");
-        MedicalProduct medicalProduct10 = new MedicalProduct("Tikslinis kraujo tyrimas", "Tyrimai");
-        MedicalProduct medicalProduct11 = new MedicalProduct("Gripo testas", "Tyrimai");
-        MedicalProduct medicalProduct12 = new MedicalProduct("Skambuciu valdymas ir pacientu registracija", "Registratura");
-        MedicalProduct medicalProduct13 = new MedicalProduct("Administracija", "Administracija");
+        MedicalProduct medicalProduct1 = new MedicalProduct("Seimos gydytojo konsultacija - gyvai",  "Konsultacija. Pirminis lygis", "Seimos medicina ir slauga");
+        MedicalProduct medicalProduct2 = new MedicalProduct("Seimos gydytojo konsultacija - telefonu", "Konsultacija. Pirminis lygis", "Seimos medicina ir slauga");
+        MedicalProduct medicalProduct3 = new MedicalProduct("LOR konsultacija", "Konsultacija. Antrinis lygis", "Gydytojai specialistai");
+        MedicalProduct medicalProduct4 = new MedicalProduct("Traumatologo konsultacija", "Konsultacija. Antrinis lygis", "Gydytojai specialistai");
+        MedicalProduct medicalProduct5 = new MedicalProduct("Dermatologo konsultacija", "Konsultacija. Antrinis lygis", "Gydytojai specialistai");
+        MedicalProduct medicalProduct6 = new MedicalProduct("Neurologo konsultacija", "Konsultacija. Tretinis lygis", "Gydytojai specialistai");
+        MedicalProduct medicalProduct7 = new MedicalProduct("Odontologo konsultacija", "Odontologija. Pirminis lygis", "Odontologija");
+        MedicalProduct medicalProduct8 = new MedicalProduct("Odontologo konsultacija", "Odontologija. Antrinis lygis", "Odontologija");
+
+        MedicalProduct medicalProduct9 = new MedicalProduct("Ekoskopija", "Kiti tyrimai", "Tyrimai");
+        MedicalProduct medicalProduct10 = new MedicalProduct("Bendrinis kraujo tyrimas", "Laboratoriniai tyrimai", "Tyrimai");
+        MedicalProduct medicalProduct11 = new MedicalProduct("Tikslinis kraujo tyrimas", "Laboratoriniai tyrimai", "Tyrimai");
+        MedicalProduct medicalProduct12 = new MedicalProduct("Gripo testas", "Laboratoriniai tyrimai", "Tyrimai");
+
+        MedicalProduct medicalProduct13 = new MedicalProduct("Stabliges skiepai", "Skiepai (nemokami)", "Skiepai");
+        MedicalProduct medicalProduct14 = new MedicalProduct("Erkinio encefalito skiepai", "Skiepai (mokami)", "Skiepai");
+        MedicalProduct medicalProduct15 = new MedicalProduct("COVID skiepai", "Skiepai (nemokami)", "Skiepai");
+
+        MedicalProduct medicalProduct16 = new MedicalProduct("Skambuciu valdymas ir pacientu registracija", "Registratura","Registratura");
+        MedicalProduct medicalProduct17 = new MedicalProduct("Administracija", "Administracija", "Administracija");
 
 
 
         // Appointments
-        Appointment appointment1 = new Appointment("Gyvai", "Tempertura", "2024-01-26, 09:30");
+        Appointment appointment1 = new Appointment("Gyvai", "Temperatura", "2024-01-26, 09:30");
         Appointment appointment2 = new Appointment("Gyvai", "Berimas", "2024-01-26, 09:30");
         Appointment appointment3 = new Appointment("Gyvai", "Alkunes skausmas", "2024-01-26, 09:30");
         Appointment appointment4 = new Appointment("Gyvai", "Profilaktika", "2024-01-26, 09:30");
@@ -99,7 +106,7 @@ public class DataLoader implements CommandLineRunner {
 
 
         employeeRepository.saveAll(Arrays.asList(
-                employee1, employee2, employee3, employee4, employee5, employee6, employee7, employee8, employee9, employee10, employee11));
+                employee0, employee1, employee2, employee3, employee4, employee5, employee6, employee7, employee8, employee9, employee10, employee11));
 
 
         patientRepository.saveAll(Arrays.asList(
@@ -130,7 +137,11 @@ public class DataLoader implements CommandLineRunner {
                 medicalProduct10,
                 medicalProduct11,
                 medicalProduct12,
-                medicalProduct13
+                medicalProduct13,
+                medicalProduct14,
+                medicalProduct15,
+                medicalProduct16,
+                medicalProduct17
         ));
 
         appointmentRepository.saveAll(Arrays.asList(
@@ -149,19 +160,25 @@ public class DataLoader implements CommandLineRunner {
 
         // Employees' Lists & Objects
         // a) Employees' Lists & Objects - Medical Products
-        employee0.addMedicalProducts(medicalProduct13);
+        employee0.addMedicalProducts(medicalProduct17);
 
         // Slaugytojos
-        employee2.addMedicalProducts(medicalProduct9);  // vyr
-        employee2.addMedicalProducts(medicalProduct10);
+        employee2.addMedicalProducts(medicalProduct10);  // vyr
         employee2.addMedicalProducts(medicalProduct11);
         employee2.addMedicalProducts(medicalProduct12);
         employee2.addMedicalProducts(medicalProduct13);
+        employee2.addMedicalProducts(medicalProduct14);
+        employee2.addMedicalProducts(medicalProduct15);
+        employee2.addMedicalProducts(medicalProduct16);
+        employee2.addMedicalProducts(medicalProduct17);
 
-        employee3.addMedicalProducts(medicalProduct9);  // n
-        employee3.addMedicalProducts(medicalProduct10);
+        employee3.addMedicalProducts(medicalProduct10); // n
         employee3.addMedicalProducts(medicalProduct11);
         employee3.addMedicalProducts(medicalProduct12);
+        employee2.addMedicalProducts(medicalProduct13);
+        employee2.addMedicalProducts(medicalProduct14);
+        employee2.addMedicalProducts(medicalProduct15);
+        employee2.addMedicalProducts(medicalProduct16);
 
 
         // Seimos
@@ -182,8 +199,6 @@ public class DataLoader implements CommandLineRunner {
         employee9.addMedicalProducts(medicalProduct5); // Derma
 
         employee10.addMedicalProducts(medicalProduct6); //Neuro
-        // Klaidingas !!!!!
-        employee10.addMedicalProducts(medicalProduct7); //Neuro  //////////////////////////////////////////////////////
 
         employee11.addMedicalProducts(medicalProduct7); // Odont
         employee11.addMedicalProducts(medicalProduct8);
@@ -216,7 +231,7 @@ public class DataLoader implements CommandLineRunner {
 
 
         employeeRepository.saveAll(Arrays.asList(
-                employee1, employee2, employee3, employee4, employee5, employee6, employee7, employee8, employee9, employee10, employee11));
+                employee0, employee1, employee2, employee3, employee4, employee5, employee6, employee7, employee8, employee9, employee10, employee11));
 
 
         patientRepository.saveAll(Arrays.asList(
@@ -245,7 +260,13 @@ public class DataLoader implements CommandLineRunner {
                 medicalProduct8,
                 medicalProduct9,
                 medicalProduct10,
-                medicalProduct11
+                medicalProduct11,
+                medicalProduct12,
+                medicalProduct13,
+                medicalProduct14,
+                medicalProduct15,
+                medicalProduct16,
+                medicalProduct17
         ));
 
 
@@ -260,14 +281,6 @@ public class DataLoader implements CommandLineRunner {
 
 
         // Remove:
-
-        // Klaidingas !!!!!
-        employee10.removeMedicalProducts(medicalProduct7); //Neuro  /////////////////////////////////////////////////////////
-
-
-        employeeRepository.saveAll(Arrays.asList(
-                employee10));
-
 
 
 

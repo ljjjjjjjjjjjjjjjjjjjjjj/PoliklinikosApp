@@ -2,7 +2,7 @@
 package lt.codeacademy.javau8.PoliklinikosApp.services;
 
 
-import lt.codeacademy.javau8.PoliklinikosApp.entities.Employee;
+
 import lt.codeacademy.javau8.PoliklinikosApp.entities.Patient;
 import lt.codeacademy.javau8.PoliklinikosApp.repositories.PatientRepository;
 import org.springframework.stereotype.Service;
@@ -52,7 +52,9 @@ public class PatientService {
             Patient existingPatient = optionalPatient.get();
             existingPatient.setPatientName(patient.getPatientName());
             existingPatient.setPatientSurname(patient.getPatientSurname());
-            existingPatient.setPatientContactInfo(patient.getPatientContactInfo());
+            existingPatient.setPatientAddress(patient.getPatientAddress());
+            existingPatient.setPatientPhone(patient.getPatientPhone());
+            existingPatient.setPatientEmail(patient.getPatientEmail());
             existingPatient.setPatientCategory(patient.getPatientCategory());
 
             return Optional.of(patientRepository.save(existingPatient));

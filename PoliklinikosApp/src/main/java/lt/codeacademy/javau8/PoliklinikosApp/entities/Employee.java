@@ -18,7 +18,9 @@ public class Employee {
 
     String empName;
     String empSurname;
-    String empContactInfo;
+    String empAddress;
+    String empPhone;
+    String empEmail;
     String empCategory;
     String imageUrl;
 
@@ -74,28 +76,34 @@ public class Employee {
         this.empCategory = empCategory;
     }
 
-    public Employee(String empName, String empSurname, String empContactInfo, String empCategory) {
+    public Employee(String empName, String empSurname, String empAddress, String empPhone,  String empEmail, String empCategory) {
         this.empName = empName;
         this.empSurname = empSurname;
-        this.empContactInfo = empContactInfo;
+        this.empAddress = empAddress;
+        this.empPhone = empPhone;
+        this.empEmail = empEmail;
         this.empCategory = empCategory;
 
     }
 
-    public Employee(Long empID, String empName, String empSurname, String empContactInfo, String empCategory,String imageUrl) {
+    public Employee(Long empID, String empName, String empSurname, String empAddress, String empPhone,  String empEmail, String empCategory,String imageUrl) {
         this.empID = empID;
         this.empName = empName;
         this.empSurname = empSurname;
-        this.empContactInfo = empContactInfo;
+        this.empAddress = empAddress;
+        this.empPhone = empPhone;
+        this.empEmail = empEmail;
         this.empCategory = empCategory;
         this.imageUrl = imageUrl;
 
     }
 
-    public Employee(String empName, String empSurname, String empContactInfo, String empCategory, String imageUrl) {
+    public Employee(String empName, String empSurname,String empAddress, String empPhone,  String empEmail, String empCategory, String imageUrl) {
         this.empName = empName;
         this.empSurname = empSurname;
-        this.empContactInfo = empContactInfo;
+        this.empAddress = empAddress;
+        this.empPhone = empPhone;
+        this.empEmail = empEmail;
         this.empCategory = empCategory;
         this.imageUrl = imageUrl;
     }
@@ -117,10 +125,21 @@ public class Employee {
     public void setEmpSurname(String empSurname) {
         this.empSurname = empSurname;}
 
-    public String getEmpContactInfo() {
-        return empContactInfo;}
-    public void setEmpContactInfo(String empContactInfo) {
-        this.empContactInfo = empContactInfo;}
+
+    public String getEmpAddress() {
+        return empAddress;}
+    public void setEmpAddress(String empAddress) {
+        this.empAddress = empAddress;}
+
+    public String getEmpPhone() {
+        return empPhone;}
+    public void setEmpPhone(String empPhone) {
+        this.empPhone = empPhone;}
+
+    public String getEmpEmail() {
+        return empEmail;}
+    public void setEmpEmail(String empEmail) {
+        this.empEmail = empEmail;}
 
     public String getEmpCategory() {
         return empCategory;}

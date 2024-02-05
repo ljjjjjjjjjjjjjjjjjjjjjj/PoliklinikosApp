@@ -68,6 +68,15 @@ public class Appointment {
         this.appDate = appDate;
     }
 
+    public Appointment(Long appID, String appCategory, String appReason, String appDate, Employee appEmployee, Patient appPatient) {
+        this.appID = appID;
+        this.appCategory = appCategory;
+        this.appReason = appReason;
+        this.appDate = appDate;
+        this.appEmployee = appEmployee;
+        this.appPatient = appPatient;
+    }
+
 
 
 

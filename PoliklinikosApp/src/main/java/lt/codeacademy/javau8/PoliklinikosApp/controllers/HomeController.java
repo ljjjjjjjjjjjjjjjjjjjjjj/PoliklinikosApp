@@ -7,6 +7,7 @@ import lt.codeacademy.javau8.PoliklinikosApp.entities.*;
 import lt.codeacademy.javau8.PoliklinikosApp.services.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,8 +15,11 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin
+
+@CrossOrigin(origins = "http://localhost:3000")
 public class HomeController {
+
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
    PatientService patientService;
    EmployeeService employeeService;
@@ -45,7 +49,7 @@ public class HomeController {
 
 
     // Read (All)  (Patients)
-    @GetMapping("/patients/get/All")
+    @GetMapping("/patients/get/all")
     public List<Patient> getAllPatients() {
         return patientService.getAllPatients();}
 
@@ -54,6 +58,13 @@ public class HomeController {
     @GetMapping("/patients/get/{id}")
     public Optional<Patient> getPatientById(@PathVariable("id") long id) {
         return patientService.getPatientById(id);
+    }
+
+    // Read (byName) (Patients)
+    @GetMapping("/patients/get/name/{name}")
+    public Optional <List<Patient>> getPatientsByName(@PathVariable("name") String patientName) {
+        logger.info("getPatientsByName");
+        return patientService.getPatientsByName(patientName);
     }
 
 
@@ -79,6 +90,7 @@ public class HomeController {
     // Create      (Employees)
     @PostMapping("/employees/add")
     public Employee addEmployee(@RequestBody Employee employee) {
+        logger.info("addEmployee");
         return employeeService.addEmployee(employee);}
 
 
@@ -86,13 +98,25 @@ public class HomeController {
     // Read (All)  (Employees)
     @GetMapping("/employees/get/all")
     public List<Employee> getAllEmployees() {
+        logger.info("getAllEmployees");
         return employeeService.getAllEmployees();}
+
+
+    // Read (byCategory)  (Employees)
+    @GetMapping("/employees/get/category/{category}")
+    public Optional <List<Employee>> getEmployeesByCategory(@PathVariable("category") String empCategory) {
+        logger.info("getEmployeesByCategory");
+
+        return employeeService.getEmployeesByCategory(empCategory);
+    }
+
 
 
 
     // Read (byID) (Employees)
     @GetMapping("/employees/get/{id}")
     public Optional<Employee> getEmployeeById(@PathVariable("id") long id) {
+        logger.info("getEmployeeById");
         return employeeService.getEmployeeById(id);
     }
 
@@ -100,13 +124,23 @@ public class HomeController {
     // Update (Employees)
     @PutMapping("/employees/edit/{id}")
     public Optional<Employee> editEmployee(@PathVariable("id") long id, @RequestBody Employee employee) {
+        logger.info("editEmployee");
         return employeeService.editEmployee(employee);
+    }
+
+
+    // Update / Add Appointment (Employees)
+    @PutMapping("/employees/edit/add-appointment/{id}")
+      public Optional<Employee> editEmployeeAddAppointment(@PathVariable("id") long id, @RequestBody Appointment appointment) {
+        logger.info("editEmployee-addAppointment");
+        return  employeeService.editEmployeeAddAppointment(id, appointment);
     }
 
 
     // Delete (Employee)
     @DeleteMapping("employees/delete/{id}")
     public void deleteEmployee(@PathVariable("id") long id) {
+        logger.info("deleteEmployee");
         employeeService.deleteEmployee(id);
     }
 

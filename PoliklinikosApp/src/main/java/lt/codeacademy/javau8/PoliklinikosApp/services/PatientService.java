@@ -3,6 +3,7 @@ package lt.codeacademy.javau8.PoliklinikosApp.services;
 
 
 
+import lt.codeacademy.javau8.PoliklinikosApp.entities.Employee;
 import lt.codeacademy.javau8.PoliklinikosApp.entities.Patient;
 import lt.codeacademy.javau8.PoliklinikosApp.repositories.PatientRepository;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PatientService {
@@ -42,6 +44,24 @@ public class PatientService {
     public Optional<Patient> getPatientById(Long patientId) {
         Optional<Patient> patientByID = patientRepository.findById(patientId);
         return patientByID;}
+
+
+
+    // Read (ByName) (employee)
+    public Optional<List<Patient>> getPatientsByName(String patientName) {
+        List<Patient> listAllPatients = patientRepository.findAll();
+
+        List<Patient> listFilteredPatients = listAllPatients
+                .stream()
+                .filter(e -> e.getPatientName().equals(patientName))
+                .collect(Collectors.toList());
+
+        if (listFilteredPatients.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of(listFilteredPatients);
+        }
+    }
 
 
     // Update (Patient)

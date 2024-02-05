@@ -1,6 +1,7 @@
 
 package lt.codeacademy.javau8.PoliklinikosApp.services;
 
+import lt.codeacademy.javau8.PoliklinikosApp.entities.Appointment;
 import lt.codeacademy.javau8.PoliklinikosApp.entities.Employee;
 import lt.codeacademy.javau8.PoliklinikosApp.repositories.EmployeeRepository;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -45,6 +47,22 @@ public class EmployeeService {
         return employeeOptional;
     }
 
+    // Read (byCategory) (employee)
+    public Optional<List<Employee>> getEmployeesByCategory(String empCategory) {
+        List<Employee> listAllEmployees = employeeRepository.findAll();
+
+        List<Employee> listFilteredEmployees = listAllEmployees
+                .stream()
+                .filter(e -> e.getEmpCategory().equals(empCategory))
+                .collect(Collectors.toList());
+
+        if (listFilteredEmployees.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of(listFilteredEmployees);
+        }
+    }
+
 
     // Update (employee)
     public Optional<Employee> editEmployee(Employee employee) {
@@ -54,6 +72,7 @@ public class EmployeeService {
             Employee existingEmployee = optionalEmployee.get();
             existingEmployee.setEmpName(employee.getEmpName());
             existingEmployee.setEmpSurname(employee.getEmpSurname());
+            existingEmployee.setEmpJobTitle(employee.getEmpJobTitle());
             existingEmployee.setEmpCategory(employee.getEmpCategory());
             existingEmployee.setEmpAddress(employee.getEmpAddress());
             existingEmployee.setEmpPhone(employee.getEmpPhone());
@@ -65,21 +84,20 @@ public class EmployeeService {
             return Optional.empty();
         }
     }
-    /*
+
     // Update (employee)
-    public void editEmployee(Employee employee) {
+    public Optional<Employee> editEmployeeAddAppointment(Long id, Appointment appointment) {
+        Optional<Employee> optionalEmployee = getEmployeeById(id);
 
-        getEmployeeById(employee.getEmpID())
-                .ifPresent(e -> {
-                    e.setEmpName(employee.getEmpName());
-                    e.setEmpSurname(employee.getEmpSurname());
-                    e.setEmpCategory(employee.getEmpCategory());
-                    e.setEmpContactInfo(employee.getEmpContactInfo());
+        if (optionalEmployee.isPresent()) {
+            Employee existingEmployee = optionalEmployee.get();
+            existingEmployee.addAppointments(appointment);
 
-                    employeeRepository.save(e);
-                });
+            return Optional.of(employeeRepository.save(existingEmployee));
+        } else {
+            return Optional.empty();
+        }
     }
-    */
 
 
     // Delete (employee)

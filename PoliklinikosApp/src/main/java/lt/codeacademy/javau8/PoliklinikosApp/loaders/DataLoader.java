@@ -1,3 +1,5 @@
+
+
 package lt.codeacademy.javau8.PoliklinikosApp.loaders;
 
 
@@ -39,18 +41,18 @@ public class DataLoader implements CommandLineRunner {
 
 
         // Employees
-        Employee employee0 = new Employee("Rasa", "Jankauskiene", "Subaciaus.g 1-10, Vilniaus m.", "+370 620 57108", "rasa@outlook.com", "Direktore", "/imagesEmployees/Employee_profile.png");
-        Employee employee1 = new Employee("Petras", "Petraitis", "Didzioji.g 1-11, Vilniaus m.", "+370 620 57108", "petras@gmail.com", "Ukvedys","/imagesEmployees/Employee_profile.png");
-        Employee employee2 = new Employee("Alina","Jersova", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "alina@gmail.com", "Vyr. Slaugytoja", "/imagesEmployees/Employee_profile.png");
-        Employee employee3 = new Employee("Viktorija", "Viktoriene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "viktorija@gmail.com", "Slaugytoja" , "/imagesEmployees/Employee_profile.png");
-        Employee employee4 = new Employee("Juste", "Justutyte", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "juste@gmail.com", "Seimos Gydytoja" , "/imagesEmployees/Employee_profile.png");
-        Employee employee5 = new Employee("Olga", "Osokina", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "olga@gmail.com", "Seimos Gydytoja", "/imagesEmployees/Employee_profile.png");
-        Employee employee6 = new Employee("Onute","Onutiene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "ona@gmail.com", "Seimos Gydytoja", "/imagesEmployees/Employee_profile.png");
-        Employee employee7 = new Employee("Justina", "Justauskaite", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "justina@gmail.com", "LOR", "/imagesEmployees/Employee_profile.png");
-        Employee employee8 = new Employee("Jonas", "Jonaitis", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "jonas@gmail.com", "Traumatologas", "/imagesEmployees/Employee_profile.png");
-        Employee employee9 = new Employee("Aiste", "Aistiene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "aiste@gmail.com", "Dermatologe", "/imagesEmployees/Employee_profile.png");
-        Employee employee10 = new Employee("Irena", "Ireniene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "irena@gmail.com", "Neurologe", "/imagesEmployees/Employee_profile.png");
-        Employee employee11 = new Employee("Gryte", "Grytaite", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "gryte@gmail.com", "Odontologe" , "/imagesEmployees/Employee_profile.png");
+        Employee employee0 = new Employee("Rasa", "Jankauskiene", "Subaciaus.g 1-10, Vilniaus m.", "+370 620 57108", "rasa@outlook.com", "Direktore" ,"Vadovai", "/imagesEmployees/Employee_profile.png");
+        Employee employee1 = new Employee("Petras", "Petraitis", "Didzioji.g 1-11, Vilniaus m.", "+370 620 57108", "petras@gmail.com", "Ukvedys","Prieziura","/imagesEmployees/Employee_profile.png");
+        Employee employee2 = new Employee("Alina","Jersova", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "alina@gmail.com", "Vyr. Slaugytoja", "Slaugytojos", "/imagesEmployees/Employee_profile.png");
+        Employee employee3 = new Employee("Viktorija", "Viktoriene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "viktorija@gmail.com", "Slaugytoja", "Slaugytojos", "/imagesEmployees/Employee_profile.png");
+        Employee employee4 = new Employee("Juste", "Justutyte", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "juste@gmail.com", "Seimos Gydytoja" , "Seimos-medicina", "/imagesEmployees/Employee_profile.png");
+        Employee employee5 = new Employee("Olga", "Osokina", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "olga@gmail.com", "Seimos Gydytoja", "Seimos-medicina", "/imagesEmployees/Employee_profile.png");
+        Employee employee6 = new Employee("Onute","Onutiene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "ona@gmail.com", "Seimos Gydytoja", "Seimos-medicina", "/imagesEmployees/Employee_profile.png");
+        Employee employee7 = new Employee("Justina", "Justauskaite", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "justina@gmail.com", "LOR", "Gydytojai-specialistai",  "/imagesEmployees/Employee_profile.png");
+        Employee employee8 = new Employee("Jonas", "Jonaitis", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "jonas@gmail.com", "Traumatologas", "Gydytojai-specialistai","/imagesEmployees/Employee_profile.png");
+        Employee employee9 = new Employee("Aiste", "Aistiene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "aiste@gmail.com", "Dermatologe", "Gydytojai-specialistai","/imagesEmployees/Employee_profile.png");
+        Employee employee10 = new Employee("Irena", "Ireniene", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "irena@gmail.com", "Neurologe", "Gydytojai-specialistai","/imagesEmployees/Employee_profile.png");
+        Employee employee11 = new Employee("Gryte", "Grytaite", "Vilniaus.g 1-11, Vilniaus m.","+370 612 34567", "gryte@gmail.com", "Odontologe" , "Odontologija", "/imagesEmployees/Employee_profile.png");
 
 
 
@@ -59,7 +61,7 @@ public class DataLoader implements CommandLineRunner {
         Patient  patient2 = new Patient ("Onute", "Onutiene", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "onute@yahoo.com", "I");
         Patient  patient3 = new Patient ("Mantas", "Mantaitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "mantas@yahoo.com", "I");
         Patient  patient4 = new Patient ("Juste", "Justiene", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "juste@yahoo.com", "I");
-        Patient  patient5 = new Patient ("Vytautas", "Vytautitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "vytautas@yahoo.com", "I");
+        Patient  patient5 = new Patient ("Vytautas", "Vytautaitis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "vytautas@yahoo.com", "I");
 
         Patient  patient6 = new Patient ("Jolanta", "Jolantiene", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "jolanta@yahoo.com", "I");
         Patient  patient7 = new Patient ("Medas", "Medutis", "Pavilnio.g 1-12, Vilniaus m.", "+370 612 34567", "medas@yahoo.com", "I");
@@ -297,60 +299,3 @@ public class DataLoader implements CommandLineRunner {
     }
 }
 
-
-  /*
-
-        employeeRepository.saveAll(Arrays.asList(
-                                   employee1,
-                                   employee2,
-                                   employee3,
-                                   employee4,
-                                   employee5,
-                                   employee6,
-                                   employee7,
-                                   employee8,
-                                   employee9,
-                                   employee10,
-                                   employee11));
-
-        patientRepository.saveAll(Arrays.asList(
-                                  patient1,
-                                  patient2,
-                                  patient3,
-                                  patient4,
-                                  patient5,
-                                  patient6,
-                                  patient7,
-                                  patient8,
-                                  patient9,
-                                  patient10,
-                                  patient11,
-                                  patient12
-                                  ));
-
-
-        appointmentRepository.saveAll(Arrays.asList(
-                                      appointment1,
-                                      appointment2,
-                                      appointment3,
-                                      appointment4,
-                                      appointment5,
-                                      appointment6
-                                      ));
-
-
-       medicalProductRepository.saveAll(Arrays.asList(
-                medicalProduct1,
-                medicalProduct2,
-                medicalProduct3,
-                medicalProduct4,
-                medicalProduct5,
-                medicalProduct6,
-                medicalProduct7,
-                medicalProduct8,
-                medicalProduct9,
-                medicalProduct10,
-                medicalProduct11
-        ));
-
-*/

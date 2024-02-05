@@ -21,6 +21,7 @@ public class Employee {
     String empAddress;
     String empPhone;
     String empEmail;
+    String empJobTitle;
     String empCategory;
     String imageUrl;
 
@@ -35,7 +36,7 @@ public class Employee {
     List<MedicalProduct> empMedicalProducts;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "appEmployee")
+    @OneToMany(mappedBy = "appEmployee", fetch = FetchType.EAGER)
     List<Appointment> empAppointments;
 
 
@@ -108,6 +109,31 @@ public class Employee {
         this.imageUrl = imageUrl;
     }
 
+    public Employee(String empName, String empSurname,String empAddress, String empPhone,  String empEmail, String empJobTitle, String empCategory, String imageUrl) {
+        this.empName = empName;
+        this.empSurname = empSurname;
+        this.empAddress = empAddress;
+        this.empPhone = empPhone;
+        this.empEmail = empEmail;
+        this.empJobTitle = empJobTitle;
+        this.empCategory = empCategory;
+        this.imageUrl = imageUrl;
+    }
+
+    public Employee(Long empID, String empName, String empSurname,String empAddress, String empPhone,  String empEmail, String empJobTitle, String empCategory, String imageUrl) {
+        this.empID = empID;
+        this.empName = empName;
+        this.empSurname = empSurname;
+        this.empAddress = empAddress;
+        this.empPhone = empPhone;
+        this.empEmail = empEmail;
+        this.empJobTitle = empJobTitle;
+        this.empCategory = empCategory;
+        this.imageUrl = imageUrl;
+    }
+
+
+
     // Getters & Listters:
 
     public Long getEmpID() {
@@ -140,6 +166,14 @@ public class Employee {
         return empEmail;}
     public void setEmpEmail(String empEmail) {
         this.empEmail = empEmail;}
+
+    public String getEmpJobTitle() {
+        return empJobTitle;
+    }
+
+    public void setEmpJobTitle(String empJobTitle) {
+        this.empJobTitle = empJobTitle;
+    }
 
     public String getEmpCategory() {
         return empCategory;}
@@ -218,8 +252,12 @@ public class Employee {
 
 
 
+}
 
-    // Upcoming_Updates: List of Patients
+
+
+
+// Upcoming_Updates: List of Patients
     /*
     public void addPatients(Patient patient) {
         if(empPatients==null){
@@ -227,7 +265,7 @@ public class Employee {
         } empPatients.add(patient);
     }
     */
-    // Upcoming_Updates: List of Patients
+// Upcoming_Updates: List of Patients
     /*
     public void addMedicalRecordss(Upcoming_Updates_MedicalRecord medicalRecord) {
         if(empMedicalRecords==null){
@@ -235,7 +273,3 @@ public class Employee {
         } empMedicalRecords.add(medicalRecord);
     }
     */
-
-
-
-}

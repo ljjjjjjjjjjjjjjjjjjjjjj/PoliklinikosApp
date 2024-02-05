@@ -50,6 +50,8 @@ public class AppointmentService {
             Appointment existingAppointment = optionalAppointment.get();
             existingAppointment.setAppCategory(appointment.getAppCategory());
             existingAppointment.setAppReason(appointment.getAppReason());
+            existingAppointment.setAppEmployee(appointment.getAppEmployee());
+            existingAppointment.setAppPatient(appointment.getAppPatient());
             existingAppointment.setAppDate(appointment.getAppDate());
 
             return Optional.of(appointmentRepository.save(existingAppointment));

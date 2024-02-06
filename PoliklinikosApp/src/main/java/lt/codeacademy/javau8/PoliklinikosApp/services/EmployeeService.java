@@ -85,13 +85,14 @@ public class EmployeeService {
         }
     }
 
-    // Update (employee)
+    // Update Add Appointment(employee)
     public Optional<Employee> editEmployeeAddAppointment(Long id, Appointment appointment) {
         Optional<Employee> optionalEmployee = getEmployeeById(id);
 
         if (optionalEmployee.isPresent()) {
             Employee existingEmployee = optionalEmployee.get();
             existingEmployee.addAppointments(appointment);
+
 
             return Optional.of(employeeRepository.save(existingEmployee));
         } else {

@@ -196,8 +196,10 @@ public class HomeController {
 
     // Create      (Appointments)
     @PostMapping("/appointments/add")
-    public Appointment addAppointment(@RequestBody Appointment appointment) {
-        return appointmentService.addAppointment(appointment);}
+    public Appointment addAppointment(@RequestBody AppointmentDTO dto) {
+
+        return appointmentService.addAppointment(dto);
+    }
 
 
 

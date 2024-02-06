@@ -22,10 +22,12 @@ public class Appointment {
 
     //Lists & objects:
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "empID")
     Employee appEmployee;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "patientID")
     Patient appPatient;

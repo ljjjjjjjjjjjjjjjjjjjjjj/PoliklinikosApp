@@ -15,6 +15,8 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long patientID;
 
+    Long patientNO;
+
     String patientName;
     String patientSurname;
     String patientAddress;
@@ -68,8 +70,19 @@ public class Patient {
         this.patientCategory = patientCategory;
     }
 
-    public Patient(Long patientID, String patientName, String patientSurname, String patientAddress, String patientPhone,  String patientEmail, String patientCategory) {
+    public Patient(String patientName, String patientSurname, Long patientNO, String patientAddress, String patientPhone,  String patientEmail, String patientCategory) {
+        this.patientNO = patientNO;
+        this.patientName = patientName;
+        this.patientSurname = patientSurname;
+        this.patientAddress = patientAddress;
+        this.patientPhone = patientPhone;
+        this.patientEmail = patientEmail;
+        this.patientCategory = patientCategory;
+    }
+
+    public Patient(Long patientID, String patientName, String patientSurname, Long patientNO, String patientAddress, String patientPhone, String patientEmail, String patientCategory) {
         this.patientID = patientID;
+        this.patientNO = patientNO;
         this.patientName = patientName;
         this.patientSurname = patientSurname;
         this.patientAddress = patientAddress;
@@ -124,6 +137,14 @@ public class Patient {
         this.patientCategory = patientCategory;
     }
 
+    public Long getPatientNO() {
+        return patientNO;
+    }
+
+    public void setPatientNo(Long patientNO) {
+        this.patientNO = patientNO;
+    }
+
 
     // Lists & objects Getters & Listters:
 
@@ -137,6 +158,8 @@ public class Patient {
         return patientMedicalProducts;}
     public void setPatientMedicalProducts(List<MedicalProduct> patientMedicalProducts) {
         this.patientMedicalProducts = patientMedicalProducts;}
+    
+    
 
 
 

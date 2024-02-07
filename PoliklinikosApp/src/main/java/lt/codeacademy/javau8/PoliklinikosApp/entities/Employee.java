@@ -18,6 +18,7 @@ public class Employee {
 
     String empName;
     String empSurname;
+    Long empNO;
     String empAddress;
     String empPhone;
     String empEmail;
@@ -77,15 +78,7 @@ public class Employee {
         this.empCategory = empCategory;
     }
 
-    public Employee(String empName, String empSurname, String empAddress, String empPhone,  String empEmail, String empCategory) {
-        this.empName = empName;
-        this.empSurname = empSurname;
-        this.empAddress = empAddress;
-        this.empPhone = empPhone;
-        this.empEmail = empEmail;
-        this.empCategory = empCategory;
 
-    }
 
     public Employee(Long empID, String empName, String empSurname, String empAddress, String empPhone,  String empEmail, String empCategory,String imageUrl) {
         this.empID = empID;
@@ -99,17 +92,10 @@ public class Employee {
 
     }
 
-    public Employee(String empName, String empSurname,String empAddress, String empPhone,  String empEmail, String empCategory, String imageUrl) {
-        this.empName = empName;
-        this.empSurname = empSurname;
-        this.empAddress = empAddress;
-        this.empPhone = empPhone;
-        this.empEmail = empEmail;
-        this.empCategory = empCategory;
-        this.imageUrl = imageUrl;
-    }
 
-    public Employee(String empName, String empSurname,String empAddress, String empPhone,  String empEmail, String empJobTitle, String empCategory, String imageUrl) {
+
+    public Employee(String empName, String empSurname, Long empNO, String empAddress, String empPhone,  String empEmail, String empJobTitle, String empCategory, String imageUrl) {
+        this.empNO = empNO;
         this.empName = empName;
         this.empSurname = empSurname;
         this.empAddress = empAddress;
@@ -120,8 +106,9 @@ public class Employee {
         this.imageUrl = imageUrl;
     }
 
-    public Employee(Long empID, String empName, String empSurname,String empAddress, String empPhone,  String empEmail, String empJobTitle, String empCategory, String imageUrl) {
+    public Employee(Long empID, String empName, String empSurname, Long empNO, String empAddress, String empPhone,  String empEmail, String empJobTitle, String empCategory, String imageUrl) {
         this.empID = empID;
+        this.empNO = empNO;
         this.empName = empName;
         this.empSurname = empSurname;
         this.empAddress = empAddress;
@@ -185,6 +172,13 @@ public class Employee {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;}
 
+    public Long getEmpNO() {
+        return empNO;
+    }
+
+    public void setEmpNO(Long empNO) {
+        this.empNO = empNO;
+    }
 
     // Lists & objects Getters & Listters:
 

@@ -14,23 +14,28 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long appID;
+
+
     String appCategory;
     String appReason;
     String appDate;
-    // LocalDateTime appDate; to be updated
+
 
 
     //Lists & objects:
-
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "empID")
     Employee appEmployee;
 
+
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "patientID")
     Patient appPatient;
+
+
 
 
     @JsonIgnore
@@ -39,6 +44,8 @@ public class Appointment {
             joinColumns = @JoinColumn(name = "appID"),
             inverseJoinColumns = @JoinColumn(name = "productID"))
     List<MedicalProduct> appMedicalProducts;
+
+
 
 
 
@@ -77,7 +84,10 @@ public class Appointment {
         this.appDate = appDate;
         this.appEmployee = appEmployee;
         this.appPatient = appPatient;
+
     }
+
+
 
 
 

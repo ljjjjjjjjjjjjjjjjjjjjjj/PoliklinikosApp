@@ -198,7 +198,7 @@ public class HomeController {
     @PostMapping("/appointments/add")
     public Appointment addAppointment(@RequestBody AppointmentDTO dto) {
 
-        return appointmentService.addAppointment(dto);
+        return appointmentService.addAppointmentDTO(dto);
     }
 
 
@@ -209,6 +209,13 @@ public class HomeController {
         return appointmentService.getAllAppointments();}
 
 
+    // Read (All)  (Appointments) - WITH OBJECTS
+    @GetMapping("/appointments/get/all-objects")
+    public List<AppointmentDTO> getAllAppointmentsObjects() {
+        return appointmentService.getAllAppointmentsObjects();}
+
+
+
 
     // Read (byID) (Appointments)
     @GetMapping("/appointments/get/{id}")
@@ -216,11 +223,28 @@ public class HomeController {
         return appointmentService.getAppointmentById(id);
     }
 
+    // Read (byID) (Appointments) - WITH OBJECTS
+    @GetMapping("/appointments/get/objects{id}")
+    public Optional<AppointmentDTO> getAppointmentByIdObjectsDTO(@PathVariable("id") long id) {
+        return appointmentService.getAppointmentByIdObjectsDTO(id);
+    }
 
+
+
+
+    /*
     // Update (Appointments)
     @PutMapping("/appointments/edit/{id}")
     public Optional<Appointment> editAppointment(@PathVariable("id") long id, @RequestBody Appointment appointment) {
         return appointmentService.editAppointment(appointment);
+    }
+    */
+
+
+    // Update (Appointments) - WITH OBJECTS
+    @PutMapping("/appointments/edit/objects{id}")
+    public Optional<Appointment> editAppointment(@PathVariable("id") long id, @RequestBody AppointmentDTO dto) {
+        return appointmentService.editAppointmentWithObjectsDTO(dto);
     }
 
 

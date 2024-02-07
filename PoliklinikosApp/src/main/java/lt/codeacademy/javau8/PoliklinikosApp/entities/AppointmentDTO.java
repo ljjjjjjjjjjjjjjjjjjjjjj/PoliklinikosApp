@@ -3,8 +3,7 @@ package lt.codeacademy.javau8.PoliklinikosApp.entities;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-
+import jakarta.persistence.Transient;
 
 
 public class AppointmentDTO {
@@ -14,22 +13,75 @@ public class AppointmentDTO {
     String appReason;
     String appDate;
 
-    Long appEmployee;
-    Long appPatient;
+
+
+    // Employee info:
+    Long appEmployeeID;
+    String empName;
+    String empSurname;
+    String empJobTitle;
+    String empCategory;
+
+
+    // Patient info:
+    Long appPatientID;
+
+    String patientName;
+    String patientSurname;
+    Long patientNO;
+
+
+
+
 
     public AppointmentDTO(){}
 
-    public AppointmentDTO(Long appID, String appCategory, String appReason, String appDate, Long appEmployee, Long appPatient) {
+    public AppointmentDTO(Long appID, String appCategory, String appReason, String appDate,
+                          Long appEmployeeID, Long appPatientID) {
         this.appID = appID;
         this.appCategory = appCategory;
         this.appReason = appReason;
         this.appDate = appDate;
-        this.appEmployee = appEmployee;
-        this.appPatient = appPatient;
+        this.appEmployeeID = appEmployeeID;
+        this.appPatientID = appPatientID;
     }
 
+    public AppointmentDTO(Long appID, String appCategory, String appReason, String appDate,
+                          Long appEmployeeID,  String empName, String empSurname, String empJobTitle, String empCategory,
+                          Long appPatientID) {
+        this.appID = appID;
+        this.appCategory = appCategory;
+        this.appReason = appReason;
+        this.appDate = appDate;
 
+        this.appEmployeeID = appEmployeeID;
+        this.empName = empName;
+        this.empSurname = empSurname;
+        this.empJobTitle = empJobTitle;
+        this.empCategory = empCategory;
 
+        this.appPatientID = appPatientID;
+    }
+
+    public AppointmentDTO(Long appID, String appCategory, String appReason, String appDate,
+                          Long appEmployeeID, String empName, String empSurname, String empJobTitle, String empCategory,
+                          Long appPatientID, String patientName, String patientSurname, Long patientNO) {
+        this.appID = appID;
+        this.appCategory = appCategory;
+        this.appReason = appReason;
+        this.appDate = appDate;
+
+        this.appEmployeeID = appEmployeeID;
+        this.empName = empName;
+        this.empSurname = empSurname;
+        this.empJobTitle = empJobTitle;
+        this.empCategory = empCategory;
+
+        this.appPatientID = appPatientID;
+        this.patientName = patientName;
+        this.patientSurname = patientSurname;
+        this.patientNO = patientNO;
+    }
 
     // Getters & Setters
     public Long getAppID() {
@@ -64,19 +116,75 @@ public class AppointmentDTO {
         this.appDate = appDate;
     }
 
-    public Long getAppEmployee() {
-        return appEmployee;
+    public Long getAppEmployeeID() {
+        return appEmployeeID;
     }
 
-    public void setAppEmployee(Long appEmployee) {
-        this.appEmployee = appEmployee;
+    public void setAppEmployeeID(Long appEmployeeID) {
+        this.appEmployeeID = appEmployeeID;
     }
 
-    public Long getAppPatient() {
-        return appPatient;
+    public String getEmpName() {
+        return empName;
     }
 
-    public void setAppPatient(Long appPatient) {
-        this.appPatient = appPatient;
+    public void setEmpName(String empName) {
+        this.empName = empName;
+    }
+
+    public String getEmpSurname() {
+        return empSurname;
+    }
+
+    public void setEmpSurname(String empSurname) {
+        this.empSurname = empSurname;
+    }
+
+    public String getEmpJobTitle() {
+        return empJobTitle;
+    }
+
+    public void setEmpJobTitle(String empJobTitle) {
+        this.empJobTitle = empJobTitle;
+    }
+
+    public String getEmpCategory() {
+        return empCategory;
+    }
+
+    public void setEmpCategory(String empCategory) {
+        this.empCategory = empCategory;
+    }
+
+    public Long getAppPatientID() {
+        return appPatientID;
+    }
+
+    public void setAppPatientID(Long appPatientID) {
+        this.appPatientID = appPatientID;
+    }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getPatientSurname() {
+        return patientSurname;
+    }
+
+    public void setPatientSurname(String patientSurname) {
+        this.patientSurname = patientSurname;
+    }
+
+    public Long getPatientNO() {
+        return patientNO;
+    }
+
+    public void setPatientNO(Long patientNO) {
+        this.patientNO = patientNO;
     }
 }

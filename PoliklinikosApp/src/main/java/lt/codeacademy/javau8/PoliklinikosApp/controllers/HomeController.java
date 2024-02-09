@@ -195,7 +195,7 @@ public class HomeController {
 
 
     // Create      (Appointments)
-    @PostMapping("/appointments/add")
+    @PostMapping("/appointments/add-objects")
     public Appointment addAppointment(@RequestBody AppointmentDTO dto) {
 
         return appointmentService.addAppointmentDTO(dto);
@@ -228,6 +228,14 @@ public class HomeController {
     public Optional<AppointmentDTO> getAppointmentByIdObjectsDTO(@PathVariable("id") long id) {
         return appointmentService.getAppointmentByIdObjectsDTO(id);
     }
+
+
+    // Read (byPATIENT)  (Appointments) - WITH OBJECTS
+    @GetMapping("/appointments/get/all-patient-objects{id}")
+    public List<AppointmentDTO> getAllAppointmentsByPatientObjects(@PathVariable("id") long id) {
+        return appointmentService.getAllAppointmentsByPatientDTO(id);}
+
+
 
 
 

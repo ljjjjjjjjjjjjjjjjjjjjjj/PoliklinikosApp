@@ -94,6 +94,7 @@ public class AppointmentService {
 
 
 
+
     // Read (byID) (Appointment)
     public Optional<Appointment> getAppointmentById(Long appointmentId) {
         Optional<Appointment> appointmentByID = appointmentRepository.findById(appointmentId);
@@ -113,6 +114,25 @@ public class AppointmentService {
         }
       return Optional.of(dtoExisting);
     }
+
+
+    // Read (All) (Appointment) - WITH OBJECTS
+    public List<AppointmentDTO> getAllAppointmentsByPatientDTO(Long appointmentId) {
+        List<Appointment> appointmentsList = appointmentRepository.findAll();
+        List<AppointmentDTO> dtoList = new ArrayList<>();
+
+        for (Appointment appointment : appointmentsList) {
+            if (appointment.getAppPatient().getPatientID().equals(appointmentId)) {
+                AppointmentDTO dto = fromAppointmentToDTO(appointment);
+                dtoList.add(dto);
+            }
+        }
+
+        return dtoList;
+    }
+
+
+
 
 
     // Method from App to DTO
@@ -144,6 +164,9 @@ public class AppointmentService {
 
         return dto;
     }
+
+
+
 
     // Update (Appointment)  - WITH OBJECTS   ( DTO - to - app )
     public Optional <Appointment> editAppointmentWithObjectsDTO(AppointmentDTO dto) {

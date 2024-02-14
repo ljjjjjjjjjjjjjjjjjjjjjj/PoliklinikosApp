@@ -46,7 +46,7 @@ public class HomeController {
 
     // Read (All)  (Employees)
     @GetMapping("/public/employees/get/all")
-    public List<Employee> getAllEmployees() {
+    public List<Employee> getAllEmployeesPublic() {
         logger.info("getAllEmployees");
         return employeeService.getAllEmployees();}
 

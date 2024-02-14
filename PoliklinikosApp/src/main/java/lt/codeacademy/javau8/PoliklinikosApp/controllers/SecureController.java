@@ -9,6 +9,7 @@ import lt.codeacademy.javau8.PoliklinikosApp.services.MedicalProductService;
 import lt.codeacademy.javau8.PoliklinikosApp.services.PatientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,25 +45,25 @@ public class SecureController {
     ////////////////////////////////////////////////////////////////////
 
     // Create      (Patients)
-    @PostMapping("/logged/patients/add")
+    @PostMapping("logged/patients/add")
     public Patient addPatient(@RequestBody Patient patient) {
         return patientService.addPatient(patient);}
 
 
     // Read (All)  (Patients)
-    @GetMapping("/logged/patients/get/all")
+    @GetMapping("logged/patients/get/all")
     public List<Patient> getAllPatients() {
         return patientService.getAllPatients();}
 
 
     // Read (byID) (Patients)
-    @GetMapping("/logged/patients/get/{id}")
+    @GetMapping("logged/patients/get/{id}")
     public Optional<Patient> getPatientById(@PathVariable("id") long id) {
         return patientService.getPatientById(id);
     }
 
     // Read (byName) (Patients)
-    @GetMapping("/logged/patients/get/name/{name}")
+    @GetMapping("logged/patients/get/name/{name}")
     public Optional <List<Patient>> getPatientsByName(@PathVariable("name") String patientName) {
         logger.info("getPatientsByName");
         return patientService.getPatientsByName(patientName);
@@ -70,14 +71,14 @@ public class SecureController {
 
 
     // Update (Patients)
-    @PutMapping("/logged/patients/edit/{id}")
+    @PutMapping("logged/patients/edit/{id}")
     public Optional<Patient> editPatient(@PathVariable("id") long id, @RequestBody Patient patient) {
         return patientService.editPatient(patient);
     }
 
 
     // Delete (Patients)
-    @DeleteMapping("/logged/patients/delete/{id}")
+    @DeleteMapping("logged/patients/delete/{id}")
     public void deletePatient(@PathVariable("id") long id) {
         patientService.deletePatient(id);
     }
@@ -89,7 +90,7 @@ public class SecureController {
     ////////////////////////////////////////////////////////////////////
 
     // Create      (Employees)
-    @PostMapping("/logged/employees/add")
+    @PostMapping("logged/employees/add")
     public Employee addEmployee(@RequestBody Employee employee) {
         logger.info("addEmployee");
         return employeeService.addEmployee(employee);}
@@ -97,14 +98,14 @@ public class SecureController {
 
 
     // Read (All)  (Employees)
-    @GetMapping("/logged/employees/get/all")
-    public List<Employee> getAllEmployees() {
+    @GetMapping("logged/employees/get/all")
+    public List<Employee> getAllEmployeesLogged() {
         logger.info("getAllEmployees");
         return employeeService.getAllEmployees();}
 
 
     // Read (byCategory)  (Employees)
-    @GetMapping("/logged/employees/get/category/{category}")
+    @GetMapping("logged/employees/get/category/{category}")
     public Optional <List<Employee>> getEmployeesByCategory(@PathVariable("category") String empCategory) {
         logger.info("getEmployeesByCategory");
 
@@ -115,7 +116,7 @@ public class SecureController {
 
 
     // Read (byID) (Employees)
-    @GetMapping("/employees/get/{id}")
+    @GetMapping("logged/employees/get/{id}")
     public Optional<Employee> getEmployeeById(@PathVariable("id") long id) {
         logger.info("getEmployeeById");
         return employeeService.getEmployeeById(id);
@@ -123,7 +124,7 @@ public class SecureController {
 
 
     // Update (Employees)
-    @PutMapping("/employees/edit/{id}")
+    @PutMapping("logged/employees/edit/{id}")
     public Optional<Employee> editEmployee(@PathVariable("id") long id, @RequestBody Employee employee) {
         logger.info("editEmployee");
         return employeeService.editEmployee(employee);
@@ -131,7 +132,7 @@ public class SecureController {
 
 
     // Update / Add Appointment (Employees)
-    @PutMapping("/employees/edit/add-appointment/{id}")
+    @PutMapping("logged/employees/edit/add-appointment/{id}")
       public Optional<Employee> editEmployeeAddAppointment(@PathVariable("id") long id, @RequestBody Appointment appointment) {
         logger.info("editEmployee-addAppointment");
         return  employeeService.editEmployeeAddAppointment(id, appointment);
@@ -139,7 +140,7 @@ public class SecureController {
 
 
     // Delete (Employee)
-    @DeleteMapping("employees/delete/{id}")
+    @DeleteMapping("logged/employees/delete/{id}")
     public void deleteEmployee(@PathVariable("id") long id) {
         logger.info("deleteEmployee");
         employeeService.deleteEmployee(id);
@@ -153,35 +154,35 @@ public class SecureController {
     ///////////////////////////////////////////////////////////////////
 
     // Create      (Medical Products)
-    @PostMapping("/medical-products/add")
+    @PostMapping("logged/medical-products/add")
     public MedicalProduct addMedicalService(@RequestBody MedicalProduct medicalProduct) {
         return medicalProductService.addMedicalProduct(medicalProduct);
     }
 
 
     // Read (All)  (Medical Products)
-    @GetMapping("/medical-products/get/all")
+    @GetMapping("logged/medical-products/get/all")
     public List<MedicalProduct> getAllMedicalProducts() {
         return medicalProductService.getAllMedicalProducts();
     }
 
 
     // Read (byID) (Medical Products)
-    @GetMapping("/medical-products/get/{id}")
+    @GetMapping("logged/medical-products/get/{id}")
     public Optional<MedicalProduct> getMedicalSProductById(@PathVariable("id") long id) {
         return medicalProductService.getMedicalProductById(id);
     }
 
 
     // Update (Medical Products)
-    @PutMapping("/medical-products/edit/{id}")
+    @PutMapping("logged/medical-products/edit/{id}")
     public void editMedicalProduct(@PathVariable("id") long id, @RequestBody MedicalProduct medicalProduct) {
         medicalProductService.editMedicalProduct(medicalProduct);
     }
 
 
     // Delete (Medical Products)
-    @DeleteMapping("/medical-products/delete/{id}")
+    @DeleteMapping("logged/medical-products/delete/{id}")
     public void deleteMedicalService(@PathVariable ("id") long id) {
             medicalProductService.deleteMedicalProduct(id);
     }
@@ -196,7 +197,7 @@ public class SecureController {
 
 
     // Create      (Appointments)
-    @PostMapping("/appointments/add-objects")
+    @PostMapping("logged/appointments/add-objects")
     public Appointment addAppointment(@RequestBody AppointmentDTO dto) {
 
         return appointmentService.addAppointmentDTO(dto);
@@ -205,13 +206,13 @@ public class SecureController {
 
 
     // Read (All)  (Appointments)
-    @GetMapping("/appointments/get/all")
+    @GetMapping("logged/appointments/get/all")
     public List<Appointment> getAllAppointments() {
         return appointmentService.getAllAppointments();}
 
 
     // Read (All)  (Appointments) - WITH OBJECTS
-    @GetMapping("/appointments/get/all-objects")
+    @GetMapping("logged/appointments/get/all-objects")
     public List<AppointmentDTO> getAllAppointmentsObjects() {
         return appointmentService.getAllAppointmentsObjects();}
 
@@ -219,20 +220,20 @@ public class SecureController {
 
 
     // Read (byID) (Appointments)
-    @GetMapping("/appointments/get/{id}")
+    @GetMapping("logged/appointments/get/{id}")
     public Optional<Appointment> getAppointmentById(@PathVariable("id") long id) {
         return appointmentService.getAppointmentById(id);
     }
 
     // Read (byID) (Appointments) - WITH OBJECTS
-    @GetMapping("/appointments/get/objects{id}")
+    @GetMapping("logged/appointments/get/objects{id}")
     public Optional<AppointmentDTO> getAppointmentByIdObjectsDTO(@PathVariable("id") long id) {
         return appointmentService.getAppointmentByIdObjectsDTO(id);
     }
 
 
     // Read (byPATIENT)  (Appointments) - WITH OBJECTS
-    @GetMapping("/appointments/get/all-patient-objects{id}")
+    @GetMapping("logged/appointments/get/all-patient-objects{id}")
     public List<AppointmentDTO> getAllAppointmentsByPatientObjects(@PathVariable("id") long id) {
         return appointmentService.getAllAppointmentsByPatientDTO(id);}
 
@@ -251,14 +252,14 @@ public class SecureController {
 
 
     // Update (Appointments) - WITH OBJECTS
-    @PutMapping("/appointments/edit/objects{id}")
+    @PutMapping("logged/appointments/edit/objects{id}")
     public Optional<Appointment> editAppointment(@PathVariable("id") long id, @RequestBody AppointmentDTO dto) {
         return appointmentService.editAppointmentWithObjectsDTO(dto);
     }
 
 
     // Delete (Appointment)
-    @DeleteMapping("appointments/delete/{id}")
+    @DeleteMapping("logged/appointments/delete/{id}")
     public void deleteAppointment(@PathVariable("id") long id) {
         appointmentService.deleteAppointment(id);
     }

@@ -73,7 +73,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
                                 .requestMatchers("/api/auth/**").permitAll()
                                 .requestMatchers( "/imagesEmployees/**").permitAll()
                                 .requestMatchers("/documentsPublic/**").permitAll()
-                                .anyRequest().authenticated()
+                                .anyRequest().hasAnyRole("USER", "ADMIN", "MODERATOR", "EMPL")
                 );
 
         http.authenticationProvider(authenticationProvider());

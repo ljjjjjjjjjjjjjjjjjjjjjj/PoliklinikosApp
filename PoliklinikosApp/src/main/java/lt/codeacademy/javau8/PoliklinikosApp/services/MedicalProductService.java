@@ -3,11 +3,9 @@ package lt.codeacademy.javau8.PoliklinikosApp.services;
 
 
 import lt.codeacademy.javau8.PoliklinikosApp.entities.MedicalProduct;
-import lt.codeacademy.javau8.PoliklinikosApp.entities.Patient;
 import lt.codeacademy.javau8.PoliklinikosApp.repositories.MedicalProductRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

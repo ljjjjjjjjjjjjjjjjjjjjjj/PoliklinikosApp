@@ -64,6 +64,12 @@ public class Employee {
 
     }
 
+    public Employee(Long empID, String empName) {
+        this.empID = empID;
+        this.empName = empName;
+
+    }
+
     public Employee(String empName, String empSurname, String empCategory) {
         this.empName = empName;
         this.empSurname = empSurname;

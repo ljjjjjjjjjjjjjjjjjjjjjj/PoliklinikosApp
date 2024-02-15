@@ -141,7 +141,7 @@ public class Patient {
         return patientNO;
     }
 
-    public void setPatientNo(Long patientNO) {
+    public void setPatientNO(Long patientNO) {
         this.patientNO = patientNO;
     }
 

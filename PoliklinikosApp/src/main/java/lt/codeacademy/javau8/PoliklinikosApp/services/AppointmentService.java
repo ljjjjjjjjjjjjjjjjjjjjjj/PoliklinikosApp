@@ -177,7 +177,6 @@ public class AppointmentService {
             Appointment existingAppointment = optionalAppointment.get();
 
             existingAppointment.setAppCategory(dto.getAppCategory());
-            existingAppointment.setAppCategory(dto.getAppCategory());
             existingAppointment.setAppReason(dto.getAppReason());
             existingAppointment.setAppDate(dto.getAppDate());
 
@@ -219,7 +218,6 @@ public class AppointmentService {
         getAppointmentById(appointmentId).ifPresent(appointmentToBeDeleted -> appointmentRepository.delete(appointmentToBeDeleted));
 
     }
-
 
 
 

@@ -197,13 +197,7 @@ public class SecureController {
 
 
 
-    /*
-    // Update (Appointments)
-    @PutMapping("/appointments/edit/{id}")
-    public Optional<Appointment> editAppointment(@PathVariable("id") long id, @RequestBody Appointment appointment) {
-        return appointmentService.editAppointment(appointment);
-    }
-    */
+
 
 
     // Update (Appointments) - WITH OBJECTS

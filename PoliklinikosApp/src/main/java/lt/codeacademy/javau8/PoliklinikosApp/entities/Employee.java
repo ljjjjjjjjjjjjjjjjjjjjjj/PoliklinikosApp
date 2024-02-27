@@ -5,9 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.List;
+
 
 @Entity
 public class Employee {
@@ -18,9 +17,13 @@ public class Employee {
 
     String empName;
     String empSurname;
+
+    @Column(unique = true)
     Long empNO;
     String empAddress;
     String empPhone;
+
+    @Column(unique = true)
     String empEmail;
     String empJobTitle;
     String empCategory;

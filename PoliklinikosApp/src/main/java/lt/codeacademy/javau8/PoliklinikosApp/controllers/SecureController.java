@@ -52,20 +52,27 @@ public class SecureController {
 
 
     // Read (All)  (Patients)
-    @GetMapping("logged/patients/get/all")
+    @GetMapping("logged/patients/get-all")
     public List<Patient> getAllPatients() {
         return patientService.getAllPatients();
     }
 
 
     // Read (byID) (Patients)
-    @GetMapping("logged/patients/get/{id}")
+    @GetMapping("logged/patients/get-id/{id}")
     public Optional<Patient> getPatientById(@PathVariable("id") long id) {
         return patientService.getPatientById(id);
     }
 
+    // Read (byEmail) (Patients)
+    @GetMapping("logged/patients/get-email/{patientEmail}")
+    public Optional<Patient> getPatientByEmail(@PathVariable("patientEmail") String patientEmail) {
+        logger.info("getPatientByEmail");
+        return patientService.getPatientByEmail(patientEmail);
+    }
+
     // Read (byName) (Patients)
-    @GetMapping("logged/patients/get/name/{name}")
+    @GetMapping("logged/patients/get-name/{name}")
     public Optional<List<Patient>> getPatientsByName(@PathVariable("name") String patientName) {
         logger.info("getPatientsByName");
         return patientService.getPatientsByName(patientName);
@@ -99,7 +106,7 @@ public class SecureController {
 
 
     // Read (All)  (Employees)
-    @GetMapping("logged/employees/get/all")
+    @GetMapping("logged/employees/get-all")
     public List<Employee> getAllEmployeesLogged() {
         logger.info("getAllEmployees");
         return employeeService.getAllEmployees();
@@ -107,7 +114,7 @@ public class SecureController {
 
 
     // Read (byCategory)  (Employees)
-    @GetMapping("logged/employees/get/category/{category}")
+    @GetMapping("logged/employees/get-category/{category}")
     public Optional<List<Employee>> getEmployeesByCategory(@PathVariable("category") String empCategory) {
         logger.info("getEmployeesByCategory");
 
@@ -116,10 +123,17 @@ public class SecureController {
 
 
     // Read (byID) (Employees)
-    @GetMapping("logged/employees/get/{id}")
+    @GetMapping("logged/employees/get-id/{id}")
     public Optional<Employee> getEmployeeById(@PathVariable("id") long id) {
         logger.info("getEmployeeById");
         return employeeService.getEmployeeById(id);
+    }
+
+    // Read (byEmail) (Employees)
+    @GetMapping("logged/employees/get-email/{empEmail}")
+    public Optional<Employee> getEmployeeByEmail(@PathVariable("empEmail") String empEmail) {
+        logger.info("getEmployeeByEmail");
+        return employeeService.getEmployeeByEmail(empEmail);
     }
 
 

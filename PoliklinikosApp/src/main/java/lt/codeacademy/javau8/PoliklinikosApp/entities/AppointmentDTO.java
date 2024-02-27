@@ -1,10 +1,5 @@
 package lt.codeacademy.javau8.PoliklinikosApp.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
-
 
 public class AppointmentDTO {
 

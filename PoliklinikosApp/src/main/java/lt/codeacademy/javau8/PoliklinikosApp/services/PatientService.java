@@ -47,7 +47,7 @@ public class PatientService {
 
 
 
-    // Read (ByName) (employee)
+    // Read (ByName) (Patient)
     public Optional<List<Patient>> getPatientsByName(String patientName) {
         List<Patient> listAllPatients = patientRepository.findAll();
 
@@ -62,6 +62,15 @@ public class PatientService {
             return Optional.of(listFilteredPatients);
         }
     }
+
+
+    // Read (ByEmail) (Patient)
+    public Optional<Patient> getPatientByEmail(String patientEmail) {
+        Optional<Patient> patientByEmail = patientRepository.findByPatientEmail(patientEmail);
+        return patientByEmail;
+    }
+
+
 
 
     // Update (Patient)

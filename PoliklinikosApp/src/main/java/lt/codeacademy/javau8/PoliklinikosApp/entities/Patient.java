@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.List;
 
 @Entity
@@ -15,12 +13,15 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long patientID;
 
+    @Column(unique = true)
     Long patientNO;
 
     String patientName;
     String patientSurname;
     String patientAddress;
     String patientPhone;
+
+    @Column(unique = true)
     String patientEmail;
     String patientCategory;
 

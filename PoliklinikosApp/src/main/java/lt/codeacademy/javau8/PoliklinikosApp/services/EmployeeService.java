@@ -47,6 +47,15 @@ public class EmployeeService {
         return employeeOptional;
     }
 
+
+
+    // Read (ByEmail) (employee)
+    public Optional<Employee> getEmployeeByEmail(String empEmail) {
+        Optional<Employee> employeeByEmail = employeeRepository.findByEmpEmail(empEmail);
+        return employeeByEmail;
+    }
+
+
     // Read (byCategory) (employee)
     public Optional<List<Employee>> getEmployeesByCategory(String empCategory) {
         List<Employee> listAllEmployees = employeeRepository.findAll();

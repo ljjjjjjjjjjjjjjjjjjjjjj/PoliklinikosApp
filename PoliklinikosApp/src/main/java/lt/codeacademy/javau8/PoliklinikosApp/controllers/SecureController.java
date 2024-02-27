@@ -183,14 +183,14 @@ public class SecureController {
     }
 
     // Read (byID) (Appointments) - WITH OBJECTS
-    @GetMapping("logged/appointments/get/objects{id}")
+    @GetMapping("logged/appointments/get/objects/{id}")
     public Optional<AppointmentDTO> getAppointmentByIdObjectsDTO(@PathVariable("id") long id) {
         return appointmentService.getAppointmentByIdObjectsDTO(id);
     }
 
 
     // Read (byPATIENT)  (Appointments) - WITH OBJECTS
-    @GetMapping("logged/appointments/get/all-patient-objects{id}")
+    @GetMapping("logged/appointments/get/all-patient-objects/{id}")
     public List<AppointmentDTO> getAllAppointmentsByPatientObjects(@PathVariable("id") long id) {
         return appointmentService.getAllAppointmentsByPatientDTO(id);
     }

@@ -117,14 +117,16 @@ public class AppointmentService {
 
 
     // Read (All) (Appointment) - WITH OBJECTS
-    public List<AppointmentDTO> getAllAppointmentsByPatientDTO(Long appointmentId) {
+    public List<AppointmentDTO> getAllAppointmentsByPatientDTO(Long patientId) {
         List<Appointment> appointmentsList = appointmentRepository.findAll();
         List<AppointmentDTO> dtoList = new ArrayList<>();
 
         for (Appointment appointment : appointmentsList) {
-            if (appointment.getAppPatient().getPatientID().equals(appointmentId)) {
+            if ( (appointment.getAppPatient()) != null){
+              if (appointment.getAppPatient().getPatientID().equals(patientId)) {
                 AppointmentDTO dto = fromAppointmentToDTO(appointment);
                 dtoList.add(dto);
+              }
             }
         }
 
